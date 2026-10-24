@@ -1,6 +1,7 @@
 <script>
   import { router } from './router.js';
   import { progressStore } from './store/progress.js';
+  import { playSound } from './engine/sound.js';
 
   import Lobby from './screens/Lobby.svelte';
   import MapScreen from './screens/Map.svelte';
@@ -16,10 +17,17 @@
   $: reducedMotion = Boolean($progressStore.settings?.reducedMotion);
   $: corrupted = progressStore.storageCorrupted;
 
+  function handleGlobalClick(e) {
+    const btn = e.target?.closest?.('button');
+    if (btn && !btn.disabled) playSound('click');
+  }
+
   function confirmResetCorrupted() {
     progressStore.resetProfile();
   }
 </script>
+
+<svelte:window on:click={handleGlobalClick} />
 
 <div class="app-shell" class:reduced-motion={reducedMotion}>
   <header class="topbar">

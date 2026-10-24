@@ -4,6 +4,7 @@
   import { matchEngine } from '../engine/match.js';
   import { progressStore } from '../store/progress.js';
   import { router } from '../router.js';
+  import { playSound } from '../engine/sound.js';
 
   import TrueFalse from '../games/TrueFalse.svelte';
   import MultiChoice from '../games/MultiChoice.svelte';
@@ -24,6 +25,36 @@
   $: state = $matchEngine;
   $: playerHpPct = Math.max(0, Math.round((state.playerHp / state.maxHp) * 100));
   $: rivalHpPct = Math.max(0, Math.round((state.rivalHp / state.maxHp) * 100));
+
+  let prevStatus = null;
+  let lastTickSecond = null;
+  let prevSkillsUsed = 0;
+
+  function handleSounds(s) {
+    if (s.status !== prevStatus) {
+      if (s.status === 'wave_resolved' && s.lastWaveResolution) {
+        playSound(s.lastWaveResolution.correct ? 'correct' : 'wrong');
+      } else if (s.status === 'finished' && s.summary && s.mode === 'match') {
+        playSound(s.summary.victory ? 'victory' : 'defeat');
+      }
+      prevStatus = s.status;
+    }
+
+    // Cuenta regresiva: un "tic" por segundo durante los últimos 5 s (solo en partida)
+    if (s.mode === 'match' && s.status === 'playing') {
+      const sec = Math.ceil(s.timeLeft);
+      if (sec !== lastTickSecond) {
+        if (sec > 0 && sec <= 5) playSound('tick');
+        lastTickSecond = sec;
+      }
+    }
+
+    const used = Object.values(s.skills || {}).filter((k) => k.used).length;
+    if (used > prevSkillsUsed) playSound('skill');
+    prevSkillsUsed = used;
+  }
+
+  $: handleSounds(state);
 
   $: if (state.status === 'finished' && state.summary) {
     progressStore.recordMatchResult({

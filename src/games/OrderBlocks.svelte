@@ -4,14 +4,10 @@
   export let activeHint = null;
   export let onSubmit = () => {};
 
-  let items = [];
+  // Inicialización única (ver nota en FillBlank.svelte): evita reordenar en cada tick del timer.
+  let items = [...(question?.blocks || [])];
   let grabbedIndex = null;
   let draggingIndex = null;
-
-  $: if (question?.blocks) {
-    items = [...question.blocks];
-    grabbedIndex = null;
-  }
 
   function moveItem(fromIndex, toIndex) {
     if (disabled) return;

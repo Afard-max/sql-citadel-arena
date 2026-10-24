@@ -4,12 +4,10 @@
   export let activeHint = null;
   export let onSubmit = () => {};
 
-  $: blankCount = Number(question?.blanks) || 1;
-  let answers = [];
-
-  $: if (question) {
-    answers = Array.from({ length: blankCount }, () => '');
-  }
+  // Se inicializa UNA sola vez: Match.svelte recrea este componente por pregunta ({#key qid}).
+  // Un `$: if (question)` aquí se re-ejecutaba en cada tick del temporizador (el store emite el
+  // mismo objeto cada 100 ms) y vaciaba los campos.
+  let answers = Array.from({ length: Number(question?.blanks) || 1 }, () => '');
 
   $: segments = parseTemplate(question?.template || '{{1}}');
 

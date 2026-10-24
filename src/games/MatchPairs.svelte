@@ -20,7 +20,9 @@
   $: rightItems = question?.right || [];
   $: allPaired = leftItems.length > 0 && Object.keys(pairs).length === leftItems.length;
 
-  $: if (activeHint?.pair) {
+  let hintApplied = false;
+  $: if (activeHint?.pair && !hintApplied) {
+    hintApplied = true;
     const { leftId, rightId } = activeHint.pair;
     if (leftId && rightId && pairs[leftId] !== rightId) {
       linkPair(leftId, rightId);
@@ -172,6 +174,8 @@
   <div class="mt-board">
     <svg class="mt-svg-layer" aria-hidden="true">
       {#each lines as ln (ln.leftId)}
+        <!-- Atajo solo de ratón: por teclado el vínculo se quita pulsando el elemento derecho. -->
+        <!-- svelte-ignore a11y_click_events_have_key_events -->
         <g
           class="arrow-group"
           on:click={() => removePair(ln.leftId)}
