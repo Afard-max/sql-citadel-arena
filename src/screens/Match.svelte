@@ -17,6 +17,13 @@
   let loading = true;
   let loadError = '';
 
+  // El motor (store global) conserva el resultado de la partida anterior hasta que arranca otra.
+  // Sin estas banderas, al entrar aquí se reaccionaba a ese estado viejo: se registraba el
+  // resultado otra vez y se saltaba a Resultados (que luego aparecía vacío).
+  let started = false;
+  let resultSaved = false;
+  let destroyed = false;
+
   $: moduleId = params.module || 'M01';
   $: rivalLevel = params.rival || $progressStore.settings?.rivalLevelDefault || 'novato';
   $: mode = params.mode === 'training' ? 'training' : 'match';
@@ -54,9 +61,10 @@
     prevSkillsUsed = used;
   }
 
-  $: handleSounds(state);
+  $: if (started) handleSounds(state);
 
-  $: if (state.status === 'finished' && state.summary) {
+  $: if (started && !resultSaved && state.status === 'finished' && state.summary) {
+    resultSaved = true;
     progressStore.recordMatchResult({
       moduleId: state.moduleId,
       rival: state.rivalLevel,
@@ -72,6 +80,8 @@
   async function initMatch() {
     loading = true;
     loadError = '';
+    started = false;
+    resultSaved = false;
     try {
       let questionsToPlay = [];
 
@@ -95,6 +105,8 @@
         questionsToPlay = sampleQuestions(content.questions, 10, Date.now());
       }
 
+      if (destroyed) return; // el usuario salió mientras cargaba: no arrancar una partida huérfana
+
       matchEngine.startMatch({
         moduleId,
         questions: questionsToPlay,
@@ -102,6 +114,10 @@
         mode: isMistakesReview ? 'training' : mode,
         seed: Date.now()
       });
+      prevStatus = null;
+      lastTickSecond = null;
+      prevSkillsUsed = 0;
+      started = true;
       loading = false;
     } catch (err) {
       loadError = err?.message || 'Error al cargar el banco de preguntas del módulo.';
@@ -169,7 +185,10 @@
   });
 
   onDestroy(() => {
+    destroyed = true;
     window.removeEventListener('keydown', handleGlobalSkillHotkeys);
+    // Si se abandona a mitad de partida (p. ej. botón Atrás), detener el temporizador del motor.
+    if (state.status !== 'finished') matchEngine.stopMatch();
   });
 </script>
 

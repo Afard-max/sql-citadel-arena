@@ -12,9 +12,18 @@
   let pointerPos = { x: 0, y: 0 };
 
   let boardEl;
+  let gridEl;
   let leftRefs = {};
   let rightRefs = {};
   let lines = [];
+
+  const LINE_PAD = 4;
+
+  // Curva suave horizontal: los cruces entre flechas se distinguen mucho mejor que con rectas
+  function curvePath(ln) {
+    const dx = Math.max(24, (ln.x2 - ln.x1) / 2);
+    return `M ${ln.x1} ${ln.y1} C ${ln.x1 + dx} ${ln.y1}, ${ln.x2 - dx} ${ln.y2}, ${ln.x2} ${ln.y2}`;
+  }
 
   $: leftItems = question?.left || [];
   $: rightItems = question?.right || [];
@@ -101,8 +110,8 @@
   }
 
   function updatePointerCoords(e) {
-    if (!boardEl) return;
-    const rect = boardEl.getBoundingClientRect();
+    if (!gridEl) return;
+    const rect = gridEl.getBoundingClientRect();
     pointerPos = {
       x: e.clientX - rect.left,
       y: e.clientY - rect.top
@@ -111,8 +120,8 @@
 
   async function updateLines() {
     await tick();
-    if (!boardEl) return;
-    const boardRect = boardEl.getBoundingClientRect();
+    if (!gridEl) return;
+    const boardRect = gridEl.getBoundingClientRect();
     const computed = [];
 
     for (const [leftId, rightId] of Object.entries(pairs)) {
@@ -124,9 +133,9 @@
         computed.push({
           leftId,
           rightId,
-          x1: lRect.right - boardRect.left,
+          x1: lRect.right - boardRect.left + LINE_PAD,
           y1: lRect.top + lRect.height / 2 - boardRect.top,
-          x2: rRect.left - boardRect.left,
+          x2: rRect.left - boardRect.left - LINE_PAD,
           y2: rRect.top + rRect.height / 2 - boardRect.top
         });
       }
@@ -135,11 +144,11 @@
   }
 
   function getLeftCenter(leftId) {
-    if (!boardEl || !leftRefs[leftId]) return { x: 0, y: 0 };
-    const boardRect = boardEl.getBoundingClientRect();
+    if (!gridEl || !leftRefs[leftId]) return { x: 0, y: 0 };
+    const boardRect = gridEl.getBoundingClientRect();
     const lRect = leftRefs[leftId].getBoundingClientRect();
     return {
-      x: lRect.right - boardRect.left,
+      x: lRect.right - boardRect.left + LINE_PAD,
       y: lRect.top + lRect.height / 2 - boardRect.top
     };
   }
@@ -151,7 +160,15 @@
 
   onMount(() => {
     window.addEventListener('resize', updateLines);
-    return () => window.removeEventListener('resize', updateLines);
+    let ro = null;
+    if (typeof ResizeObserver !== 'undefined' && gridEl) {
+      ro = new ResizeObserver(() => updateLines());
+      ro.observe(gridEl);
+    }
+    return () => {
+      window.removeEventListener('resize', updateLines);
+      ro?.disconnect();
+    };
   });
 </script>
 
@@ -171,8 +188,21 @@
     <p class="hint-banner" role="status">{activeHint.message}</p>
   {/if}
 
-  <div class="mt-board">
+  <div class="mt-board" bind:this={gridEl}>
     <svg class="mt-svg-layer" aria-hidden="true">
+      <defs>
+        <marker
+          id="mt-arrow-head"
+          viewBox="0 0 10 10"
+          refX="8"
+          refY="5"
+          markerWidth="7"
+          markerHeight="7"
+          orient="auto-start-reverse"
+        >
+          <path d="M 0 0 L 10 5 L 0 10 z" fill="var(--cyan-magic)" />
+        </marker>
+      </defs>
       {#each lines as ln (ln.leftId)}
         <!-- Atajo solo de ratón: por teclado el vínculo se quita pulsando el elemento derecho. -->
         <!-- svelte-ignore a11y_click_events_have_key_events -->
@@ -181,16 +211,17 @@
           on:click={() => removePair(ln.leftId)}
           style="cursor: pointer; pointer-events: stroke;"
         >
-          <line
-            x1={ln.x1}
-            y1={ln.y1}
-            x2={ln.x2}
-            y2={ln.y2}
+          <!-- Zona de clic ancha e invisible para poder eliminar la flecha con comodidad -->
+          <path d={curvePath(ln)} fill="none" stroke="transparent" stroke-width="16" />
+          <path
+            d={curvePath(ln)}
+            fill="none"
             stroke="var(--cyan-magic)"
             stroke-width="3"
+            stroke-linecap="round"
+            marker-end="url(#mt-arrow-head)"
           />
-          <circle cx={ln.x1} cy={ln.y1} r="5" fill="var(--gold-primary)" />
-          <circle cx={ln.x2} cy={ln.y2} r="5" fill="var(--cyan-magic)" />
+          <circle cx={ln.x1} cy={ln.y1} r="4" fill="var(--gold-primary)" />
         </g>
       {/each}
 
@@ -282,7 +313,8 @@
     position: relative;
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 2.5rem;
+    column-gap: clamp(4rem, 14%, 7rem);
+    row-gap: 0;
     align-items: center;
   }
 
@@ -298,7 +330,7 @@
   .mt-column {
     display: flex;
     flex-direction: column;
-    gap: 0.75rem;
+    gap: 1rem;
     z-index: 3;
   }
 
@@ -328,7 +360,7 @@
 
   @media (max-width: 540px) {
     .mt-board {
-      gap: 1.25rem;
+      column-gap: 2.75rem;
     }
     .mt-node {
       font-size: 0.82rem;
