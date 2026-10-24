@@ -1,0 +1,500 @@
+{
+  "contentVersion": "1.0.0",
+  "module": "M09",
+  "questions": [
+    {
+      "qid": "M09-tf-001",
+      "module": "M09",
+      "type": "tf",
+      "difficulty": 1,
+      "prompt": "Indica si la afirmación sobre SELECT, WHERE, GROUP BY y HAVING es verdadera o falsa:",
+      "statement": "Para comprobar si una columna contiene el valor nulo en WHERE debe usarse IS NULL y no = NULL.",
+      "timeLimit": 15,
+      "tags": [
+        "m09",
+        "tf"
+      ],
+      "explanation": "Para comprobar si una columna contiene el valor nulo en WHERE debe usarse IS NULL y no = NULL.",
+      "answer": {
+        "value": true
+      }
+    },
+    {
+      "qid": "M09-tf-002",
+      "module": "M09",
+      "type": "tf",
+      "difficulty": 1,
+      "prompt": "Evalúa la siguiente afirmación sobre SELECT, WHERE, GROUP BY y HAVING:",
+      "statement": "La cláusula WHERE permite filtrar directamente por funciones de agregación como WHERE COUNT(*) > 5.",
+      "timeLimit": 15,
+      "tags": [
+        "m09",
+        "tf"
+      ],
+      "explanation": "Es falso: Para comprobar si una columna contiene el valor nulo en WHERE debe usarse IS NULL y no = NULL.",
+      "answer": {
+        "value": false
+      }
+    },
+    {
+      "qid": "M09-tf-003",
+      "module": "M09",
+      "type": "tf",
+      "difficulty": 2,
+      "prompt": "Verifica el comportamiento en MySQL 8.4 sobre SELECT, WHERE, GROUP BY y HAVING:",
+      "statement": "DISTINCT elimina las filas duplicadas del conjunto de resultados devuelto por SELECT.",
+      "timeLimit": 15,
+      "tags": [
+        "m09",
+        "tf"
+      ],
+      "explanation": "DISTINCT elimina las filas duplicadas del conjunto de resultados devuelto por SELECT.",
+      "answer": {
+        "value": true
+      }
+    },
+    {
+      "qid": "M09-mc-001",
+      "module": "M09",
+      "type": "mc",
+      "difficulty": 1,
+      "prompt": "¿Qué cláusula se utiliza para filtrar grupos después de aplicar GROUP BY?",
+      "multi": false,
+      "options": [
+        {
+          "id": "a",
+          "text": "HAVING"
+        },
+        {
+          "id": "b",
+          "text": "WHERE"
+        },
+        {
+          "id": "c",
+          "text": "ORDER BY"
+        },
+        {
+          "id": "d",
+          "text": "LIMIT"
+        }
+      ],
+      "timeLimit": 30,
+      "tags": [
+        "m09",
+        "mc"
+      ],
+      "explanation": "La sintaxis válida en MySQL 8.4 es: HAVING",
+      "answer": {
+        "correct": [
+          "a"
+        ]
+      }
+    },
+    {
+      "qid": "M09-mc-002",
+      "module": "M09",
+      "type": "mc",
+      "difficulty": 2,
+      "prompt": "Selecciona los operadores válidos dentro de una cláusula WHERE en MySQL:",
+      "multi": true,
+      "options": [
+        {
+          "id": "a",
+          "text": "BETWEEN 10 AND 50"
+        },
+        {
+          "id": "b",
+          "text": "IN (1, 2, 3)"
+        },
+        {
+          "id": "c",
+          "text": "IS NOT NULL"
+        },
+        {
+          "id": "d",
+          "text": "EQUALS NULL"
+        }
+      ],
+      "timeLimit": 30,
+      "tags": [
+        "m09",
+        "mc"
+      ],
+      "explanation": "Las opciones válidas son BETWEEN 10 AND 50, IN (1, 2, 3) y IS NOT NULL.",
+      "answer": {
+        "correct": [
+          "a",
+          "b",
+          "c"
+        ]
+      }
+    },
+    {
+      "qid": "M09-mc-003",
+      "module": "M09",
+      "type": "mc",
+      "difficulty": 2,
+      "prompt": "¿Qué patrón de LIKE coincide con cualquier cadena que comience por \"SQL\"?",
+      "multi": false,
+      "options": [
+        {
+          "id": "a",
+          "text": "\"SQL%\""
+        },
+        {
+          "id": "b",
+          "text": "\"%SQL\""
+        },
+        {
+          "id": "c",
+          "text": "\"_SQL\""
+        },
+        {
+          "id": "d",
+          "text": "\"SQL*\""
+        }
+      ],
+      "timeLimit": 30,
+      "tags": [
+        "m09",
+        "mc"
+      ],
+      "explanation": "La respuesta correcta es: \"SQL%\"",
+      "answer": {
+        "correct": [
+          "a"
+        ]
+      }
+    },
+    {
+      "qid": "M09-fb-001",
+      "module": "M09",
+      "type": "fb",
+      "difficulty": 1,
+      "prompt": "Completa la palabra clave de MySQL para SELECT, WHERE, GROUP BY y HAVING:",
+      "template": "SELECT {{1}} rango FROM jugadores;",
+      "blanks": 1,
+      "timeLimit": 40,
+      "tags": [
+        "m09",
+        "fb"
+      ],
+      "explanation": "La palabra clave requerida en esta posición es DISTINCT.",
+      "answer": {
+        "accepted": [
+          [
+            "DISTINCT"
+          ]
+        ],
+        "caseSensitive": false
+      }
+    },
+    {
+      "qid": "M09-fb-002",
+      "module": "M09",
+      "type": "fb",
+      "difficulty": 2,
+      "prompt": "Completa la palabra clave de MySQL para SELECT, WHERE, GROUP BY y HAVING:",
+      "template": "SELECT clan_id, COUNT(*) AS total FROM jugadores {{1}} BY clan_id;",
+      "blanks": 1,
+      "timeLimit": 40,
+      "tags": [
+        "m09",
+        "fb"
+      ],
+      "explanation": "La palabra clave requerida en esta posición es GROUP.",
+      "answer": {
+        "accepted": [
+          [
+            "GROUP"
+          ]
+        ],
+        "caseSensitive": false
+      }
+    },
+    {
+      "qid": "M09-fb-003",
+      "module": "M09",
+      "type": "fb",
+      "difficulty": 2,
+      "prompt": "Completa la palabra clave de MySQL para SELECT, WHERE, GROUP BY y HAVING:",
+      "template": "SELECT clan_id, COUNT(*) AS total FROM jugadores GROUP BY clan_id {{1}} COUNT(*) >= 3;",
+      "blanks": 1,
+      "timeLimit": 40,
+      "tags": [
+        "m09",
+        "fb"
+      ],
+      "explanation": "La palabra clave requerida en esta posición es HAVING.",
+      "answer": {
+        "accepted": [
+          [
+            "HAVING"
+          ]
+        ],
+        "caseSensitive": false
+      }
+    },
+    {
+      "qid": "M09-mt-001",
+      "module": "M09",
+      "type": "mt",
+      "difficulty": 1,
+      "prompt": "Une cada elemento de SELECT, WHERE, GROUP BY y HAVING con su función en MySQL:",
+      "left": [
+        {
+          "id": "l1",
+          "text": "WHERE"
+        },
+        {
+          "id": "l2",
+          "text": "GROUP BY"
+        },
+        {
+          "id": "l3",
+          "text": "HAVING"
+        }
+      ],
+      "right": [
+        {
+          "id": "r1",
+          "text": "Filtra filas individuales antes del agrupamiento"
+        },
+        {
+          "id": "r2",
+          "text": "Agrupa filas que comparten los mismos valores"
+        },
+        {
+          "id": "r3",
+          "text": "Filtra los grupos creados por GROUP BY"
+        }
+      ],
+      "timeLimit": 45,
+      "tags": [
+        "m09",
+        "mt"
+      ],
+      "explanation": "WHERE -> Filtra filas individuales antes del agrupamiento; GROUP BY -> Agrupa filas que comparten los mismos valores.",
+      "answer": {
+        "pairs": {
+          "l1": "r1",
+          "l2": "r2",
+          "l3": "r3"
+        }
+      }
+    },
+    {
+      "qid": "M09-mt-002",
+      "module": "M09",
+      "type": "mt",
+      "difficulty": 2,
+      "prompt": "Une cada elemento de SELECT, WHERE, GROUP BY y HAVING con su función en MySQL:",
+      "left": [
+        {
+          "id": "l1",
+          "text": "WHERE"
+        },
+        {
+          "id": "l2",
+          "text": "GROUP BY"
+        },
+        {
+          "id": "l3",
+          "text": "HAVING"
+        }
+      ],
+      "right": [
+        {
+          "id": "r1",
+          "text": "Filtra filas individuales antes del agrupamiento"
+        },
+        {
+          "id": "r2",
+          "text": "Agrupa filas que comparten los mismos valores"
+        },
+        {
+          "id": "r3",
+          "text": "Filtra los grupos creados por GROUP BY"
+        }
+      ],
+      "timeLimit": 45,
+      "tags": [
+        "m09",
+        "mt"
+      ],
+      "explanation": "WHERE -> Filtra filas individuales antes del agrupamiento; GROUP BY -> Agrupa filas que comparten los mismos valores.",
+      "answer": {
+        "pairs": {
+          "l1": "r1",
+          "l2": "r2",
+          "l3": "r3"
+        }
+      }
+    },
+    {
+      "qid": "M09-mt-003",
+      "module": "M09",
+      "type": "mt",
+      "difficulty": 2,
+      "prompt": "Une cada elemento de SELECT, WHERE, GROUP BY y HAVING con su función en MySQL:",
+      "left": [
+        {
+          "id": "l1",
+          "text": "WHERE"
+        },
+        {
+          "id": "l2",
+          "text": "GROUP BY"
+        },
+        {
+          "id": "l3",
+          "text": "HAVING"
+        }
+      ],
+      "right": [
+        {
+          "id": "r1",
+          "text": "Filtra filas individuales antes del agrupamiento"
+        },
+        {
+          "id": "r2",
+          "text": "Agrupa filas que comparten los mismos valores"
+        },
+        {
+          "id": "r3",
+          "text": "Filtra los grupos creados por GROUP BY"
+        }
+      ],
+      "timeLimit": 45,
+      "tags": [
+        "m09",
+        "mt"
+      ],
+      "explanation": "WHERE -> Filtra filas individuales antes del agrupamiento; GROUP BY -> Agrupa filas que comparten los mismos valores.",
+      "answer": {
+        "pairs": {
+          "l1": "r1",
+          "l2": "r2",
+          "l3": "r3"
+        }
+      }
+    },
+    {
+      "qid": "M09-or-001",
+      "module": "M09",
+      "type": "or",
+      "difficulty": 1,
+      "prompt": "Ordena los bloques para formar una sentencia válida de SELECT, WHERE, GROUP BY y HAVING:",
+      "blocks": [
+        {
+          "id": "b1",
+          "text": "SELECT alias, puntos"
+        },
+        {
+          "id": "b2",
+          "text": "FROM jugadores"
+        },
+        {
+          "id": "b3",
+          "text": "WHERE activo = 1"
+        },
+        {
+          "id": "b4",
+          "text": "ORDER BY puntos DESC LIMIT 10;"
+        }
+      ],
+      "timeLimit": 60,
+      "tags": [
+        "m09",
+        "or"
+      ],
+      "explanation": "Orden correcto: SELECT alias, puntos FROM jugadores WHERE activo = 1 ORDER BY puntos DESC LIMIT 10;",
+      "answer": {
+        "order": [
+          "b1",
+          "b2",
+          "b3",
+          "b4"
+        ]
+      }
+    },
+    {
+      "qid": "M09-or-002",
+      "module": "M09",
+      "type": "or",
+      "difficulty": 2,
+      "prompt": "Ordena los bloques para formar una sentencia válida de SELECT, WHERE, GROUP BY y HAVING:",
+      "blocks": [
+        {
+          "id": "b1",
+          "text": "SELECT rango, AVG(puntos) AS promedio"
+        },
+        {
+          "id": "b2",
+          "text": "FROM jugadores"
+        },
+        {
+          "id": "b3",
+          "text": "GROUP BY rango"
+        },
+        {
+          "id": "b4",
+          "text": "HAVING AVG(puntos) > 500;"
+        }
+      ],
+      "timeLimit": 60,
+      "tags": [
+        "m09",
+        "or"
+      ],
+      "explanation": "Orden correcto: SELECT rango, AVG(puntos) AS promedio FROM jugadores GROUP BY rango HAVING AVG(puntos) > 500;",
+      "answer": {
+        "order": [
+          "b1",
+          "b2",
+          "b3",
+          "b4"
+        ]
+      }
+    },
+    {
+      "qid": "M09-or-003",
+      "module": "M09",
+      "type": "or",
+      "difficulty": 2,
+      "prompt": "Ordena los bloques para formar una sentencia válida de SELECT, WHERE, GROUP BY y HAVING:",
+      "blocks": [
+        {
+          "id": "b1",
+          "text": "SELECT id, alias"
+        },
+        {
+          "id": "b2",
+          "text": "FROM jugadores"
+        },
+        {
+          "id": "b3",
+          "text": "WHERE clan_id IS NULL"
+        },
+        {
+          "id": "b4",
+          "text": "ORDER BY id ASC;"
+        }
+      ],
+      "timeLimit": 60,
+      "tags": [
+        "m09",
+        "or"
+      ],
+      "explanation": "Orden correcto: SELECT id, alias FROM jugadores WHERE clan_id IS NULL ORDER BY id ASC;",
+      "answer": {
+        "order": [
+          "b1",
+          "b2",
+          "b3",
+          "b4"
+        ]
+      }
+    }
+  ]
+}

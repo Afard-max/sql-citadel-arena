@@ -1,0 +1,500 @@
+{
+  "contentVersion": "1.0.0",
+  "module": "M03",
+  "questions": [
+    {
+      "qid": "M03-tf-001",
+      "module": "M03",
+      "type": "tf",
+      "difficulty": 1,
+      "prompt": "Indica si la afirmación sobre CREATE TABLE y restricciones es verdadera o falsa:",
+      "statement": "Una columna declarada como PRIMARY KEY es implícitamente NOT NULL en MySQL.",
+      "timeLimit": 15,
+      "tags": [
+        "m03",
+        "tf"
+      ],
+      "explanation": "Una columna declarada como PRIMARY KEY es implícitamente NOT NULL en MySQL.",
+      "answer": {
+        "value": true
+      }
+    },
+    {
+      "qid": "M03-tf-002",
+      "module": "M03",
+      "type": "tf",
+      "difficulty": 1,
+      "prompt": "Evalúa la siguiente afirmación sobre CREATE TABLE y restricciones:",
+      "statement": "Una tabla en MySQL puede tener dos claves primarias (PRIMARY KEY) separadas.",
+      "timeLimit": 15,
+      "tags": [
+        "m03",
+        "tf"
+      ],
+      "explanation": "Es falso: Una columna declarada como PRIMARY KEY es implícitamente NOT NULL en MySQL.",
+      "answer": {
+        "value": false
+      }
+    },
+    {
+      "qid": "M03-tf-003",
+      "module": "M03",
+      "type": "tf",
+      "difficulty": 2,
+      "prompt": "Verifica el comportamiento en MySQL 8.4 sobre CREATE TABLE y restricciones:",
+      "statement": "La restricción UNIQUE permite impedir valores duplicados en una columna como el correo electrónico.",
+      "timeLimit": 15,
+      "tags": [
+        "m03",
+        "tf"
+      ],
+      "explanation": "La restricción UNIQUE permite impedir valores duplicados en una columna como el correo electrónico.",
+      "answer": {
+        "value": true
+      }
+    },
+    {
+      "qid": "M03-mc-001",
+      "module": "M03",
+      "type": "mc",
+      "difficulty": 1,
+      "prompt": "¿Qué atributo genera automáticamente un número secuencial al insertar una nueva fila?",
+      "multi": false,
+      "options": [
+        {
+          "id": "a",
+          "text": "AUTO_INCREMENT"
+        },
+        {
+          "id": "b",
+          "text": "IDENTITY(1,1)"
+        },
+        {
+          "id": "c",
+          "text": "SERIAL_NEXT"
+        },
+        {
+          "id": "d",
+          "text": "AUTONUMBER"
+        }
+      ],
+      "timeLimit": 30,
+      "tags": [
+        "m03",
+        "mc"
+      ],
+      "explanation": "La sintaxis válida en MySQL 8.4 es: AUTO_INCREMENT",
+      "answer": {
+        "correct": [
+          "a"
+        ]
+      }
+    },
+    {
+      "qid": "M03-mc-002",
+      "module": "M03",
+      "type": "mc",
+      "difficulty": 2,
+      "prompt": "Marca las restricciones válidas para columnas dentro de CREATE TABLE en MySQL 8.4:",
+      "multi": true,
+      "options": [
+        {
+          "id": "a",
+          "text": "PRIMARY KEY"
+        },
+        {
+          "id": "b",
+          "text": "NOT NULL"
+        },
+        {
+          "id": "c",
+          "text": "UNIQUE"
+        },
+        {
+          "id": "d",
+          "text": "FOREIGN TABLE"
+        }
+      ],
+      "timeLimit": 30,
+      "tags": [
+        "m03",
+        "mc"
+      ],
+      "explanation": "Las opciones válidas son PRIMARY KEY, NOT NULL y UNIQUE.",
+      "answer": {
+        "correct": [
+          "a",
+          "b",
+          "c"
+        ]
+      }
+    },
+    {
+      "qid": "M03-mc-003",
+      "module": "M03",
+      "type": "mc",
+      "difficulty": 2,
+      "prompt": "¿Qué cláusula define el valor que tomará una columna si se omite en un INSERT?",
+      "multi": false,
+      "options": [
+        {
+          "id": "a",
+          "text": "DEFAULT"
+        },
+        {
+          "id": "b",
+          "text": "INITIAL"
+        },
+        {
+          "id": "c",
+          "text": "FALLBACK"
+        },
+        {
+          "id": "d",
+          "text": "VALUE"
+        }
+      ],
+      "timeLimit": 30,
+      "tags": [
+        "m03",
+        "mc"
+      ],
+      "explanation": "La respuesta correcta es: DEFAULT",
+      "answer": {
+        "correct": [
+          "a"
+        ]
+      }
+    },
+    {
+      "qid": "M03-fb-001",
+      "module": "M03",
+      "type": "fb",
+      "difficulty": 1,
+      "prompt": "Completa la palabra clave de MySQL para CREATE TABLE y restricciones:",
+      "template": "CREATE {{1}} heroes (id INT PRIMARY KEY);",
+      "blanks": 1,
+      "timeLimit": 40,
+      "tags": [
+        "m03",
+        "fb"
+      ],
+      "explanation": "La palabra clave requerida en esta posición es TABLE.",
+      "answer": {
+        "accepted": [
+          [
+            "TABLE"
+          ]
+        ],
+        "caseSensitive": false
+      }
+    },
+    {
+      "qid": "M03-fb-002",
+      "module": "M03",
+      "type": "fb",
+      "difficulty": 2,
+      "prompt": "Completa la palabra clave de MySQL para CREATE TABLE y restricciones:",
+      "template": "id INT {{1}} PRIMARY KEY",
+      "blanks": 1,
+      "timeLimit": 40,
+      "tags": [
+        "m03",
+        "fb"
+      ],
+      "explanation": "La palabra clave requerida en esta posición es AUTO_INCREMENT.",
+      "answer": {
+        "accepted": [
+          [
+            "AUTO_INCREMENT"
+          ]
+        ],
+        "caseSensitive": false
+      }
+    },
+    {
+      "qid": "M03-fb-003",
+      "module": "M03",
+      "type": "fb",
+      "difficulty": 2,
+      "prompt": "Completa la palabra clave de MySQL para CREATE TABLE y restricciones:",
+      "template": "activo TINYINT(1) NOT NULL {{1}} 1",
+      "blanks": 1,
+      "timeLimit": 40,
+      "tags": [
+        "m03",
+        "fb"
+      ],
+      "explanation": "La palabra clave requerida en esta posición es DEFAULT.",
+      "answer": {
+        "accepted": [
+          [
+            "DEFAULT"
+          ]
+        ],
+        "caseSensitive": false
+      }
+    },
+    {
+      "qid": "M03-mt-001",
+      "module": "M03",
+      "type": "mt",
+      "difficulty": 1,
+      "prompt": "Une cada elemento de CREATE TABLE y restricciones con su función en MySQL:",
+      "left": [
+        {
+          "id": "l1",
+          "text": "PRIMARY KEY"
+        },
+        {
+          "id": "l2",
+          "text": "UNIQUE"
+        },
+        {
+          "id": "l3",
+          "text": "DEFAULT"
+        }
+      ],
+      "right": [
+        {
+          "id": "r1",
+          "text": "Identifica unívocamente cada fila y no admite NULL"
+        },
+        {
+          "id": "r2",
+          "text": "Impide valores repetidos en la columna"
+        },
+        {
+          "id": "r3",
+          "text": "Asigna un valor por defecto cuando no se especifica otro"
+        }
+      ],
+      "timeLimit": 45,
+      "tags": [
+        "m03",
+        "mt"
+      ],
+      "explanation": "PRIMARY KEY -> Identifica unívocamente cada fila y no admite NULL; UNIQUE -> Impide valores repetidos en la columna.",
+      "answer": {
+        "pairs": {
+          "l1": "r1",
+          "l2": "r2",
+          "l3": "r3"
+        }
+      }
+    },
+    {
+      "qid": "M03-mt-002",
+      "module": "M03",
+      "type": "mt",
+      "difficulty": 2,
+      "prompt": "Une cada elemento de CREATE TABLE y restricciones con su función en MySQL:",
+      "left": [
+        {
+          "id": "l1",
+          "text": "PRIMARY KEY"
+        },
+        {
+          "id": "l2",
+          "text": "UNIQUE"
+        },
+        {
+          "id": "l3",
+          "text": "DEFAULT"
+        }
+      ],
+      "right": [
+        {
+          "id": "r1",
+          "text": "Identifica unívocamente cada fila y no admite NULL"
+        },
+        {
+          "id": "r2",
+          "text": "Impide valores repetidos en la columna"
+        },
+        {
+          "id": "r3",
+          "text": "Asigna un valor por defecto cuando no se especifica otro"
+        }
+      ],
+      "timeLimit": 45,
+      "tags": [
+        "m03",
+        "mt"
+      ],
+      "explanation": "PRIMARY KEY -> Identifica unívocamente cada fila y no admite NULL; UNIQUE -> Impide valores repetidos en la columna.",
+      "answer": {
+        "pairs": {
+          "l1": "r1",
+          "l2": "r2",
+          "l3": "r3"
+        }
+      }
+    },
+    {
+      "qid": "M03-mt-003",
+      "module": "M03",
+      "type": "mt",
+      "difficulty": 2,
+      "prompt": "Une cada elemento de CREATE TABLE y restricciones con su función en MySQL:",
+      "left": [
+        {
+          "id": "l1",
+          "text": "PRIMARY KEY"
+        },
+        {
+          "id": "l2",
+          "text": "UNIQUE"
+        },
+        {
+          "id": "l3",
+          "text": "DEFAULT"
+        }
+      ],
+      "right": [
+        {
+          "id": "r1",
+          "text": "Identifica unívocamente cada fila y no admite NULL"
+        },
+        {
+          "id": "r2",
+          "text": "Impide valores repetidos en la columna"
+        },
+        {
+          "id": "r3",
+          "text": "Asigna un valor por defecto cuando no se especifica otro"
+        }
+      ],
+      "timeLimit": 45,
+      "tags": [
+        "m03",
+        "mt"
+      ],
+      "explanation": "PRIMARY KEY -> Identifica unívocamente cada fila y no admite NULL; UNIQUE -> Impide valores repetidos en la columna.",
+      "answer": {
+        "pairs": {
+          "l1": "r1",
+          "l2": "r2",
+          "l3": "r3"
+        }
+      }
+    },
+    {
+      "qid": "M03-or-001",
+      "module": "M03",
+      "type": "or",
+      "difficulty": 1,
+      "prompt": "Ordena los bloques para formar una sentencia válida de CREATE TABLE y restricciones:",
+      "blocks": [
+        {
+          "id": "b1",
+          "text": "CREATE TABLE"
+        },
+        {
+          "id": "b2",
+          "text": "jugadores ("
+        },
+        {
+          "id": "b3",
+          "text": "id INT AUTO_INCREMENT PRIMARY KEY,"
+        },
+        {
+          "id": "b4",
+          "text": "nombre VARCHAR(50) NOT NULL);"
+        }
+      ],
+      "timeLimit": 60,
+      "tags": [
+        "m03",
+        "or"
+      ],
+      "explanation": "Orden correcto: CREATE TABLE jugadores ( id INT AUTO_INCREMENT PRIMARY KEY, nombre VARCHAR(50) NOT NULL);",
+      "answer": {
+        "order": [
+          "b1",
+          "b2",
+          "b3",
+          "b4"
+        ]
+      }
+    },
+    {
+      "qid": "M03-or-002",
+      "module": "M03",
+      "type": "or",
+      "difficulty": 2,
+      "prompt": "Ordena los bloques para formar una sentencia válida de CREATE TABLE y restricciones:",
+      "blocks": [
+        {
+          "id": "b1",
+          "text": "email"
+        },
+        {
+          "id": "b2",
+          "text": "VARCHAR(120)"
+        },
+        {
+          "id": "b3",
+          "text": "NOT NULL"
+        },
+        {
+          "id": "b4",
+          "text": "UNIQUE"
+        }
+      ],
+      "timeLimit": 60,
+      "tags": [
+        "m03",
+        "or"
+      ],
+      "explanation": "Orden correcto: email VARCHAR(120) NOT NULL UNIQUE",
+      "answer": {
+        "order": [
+          "b1",
+          "b2",
+          "b3",
+          "b4"
+        ]
+      }
+    },
+    {
+      "qid": "M03-or-003",
+      "module": "M03",
+      "type": "or",
+      "difficulty": 2,
+      "prompt": "Ordena los bloques para formar una sentencia válida de CREATE TABLE y restricciones:",
+      "blocks": [
+        {
+          "id": "b1",
+          "text": "puntos"
+        },
+        {
+          "id": "b2",
+          "text": "INT"
+        },
+        {
+          "id": "b3",
+          "text": "NOT NULL"
+        },
+        {
+          "id": "b4",
+          "text": "DEFAULT 0"
+        }
+      ],
+      "timeLimit": 60,
+      "tags": [
+        "m03",
+        "or"
+      ],
+      "explanation": "Orden correcto: puntos INT NOT NULL DEFAULT 0",
+      "answer": {
+        "order": [
+          "b1",
+          "b2",
+          "b3",
+          "b4"
+        ]
+      }
+    }
+  ]
+}

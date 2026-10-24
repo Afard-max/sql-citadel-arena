@@ -1,0 +1,34 @@
+:root {
+  /* Paleta SDD 6.1 */
+  --bg-night: #0b1026;
+  --bg-panel: #141d3b;
+  --bg-panel-elevated: #1c274d;
+  --bg-input: #0e152e;
+
+  --gold-primary: #f5c542;
+  --gold-dim: #9e7b1c;
+  --cyan-magic: #36d1dc;
+  --cyan-glow: rgba(54, 209, 220, 0.35);
+  --crimson-dmg: #e63946;
+  --crimson-glow: rgba(230, 57, 70, 0.35);
+  --emerald-ok: #2ec4b6;
+
+  --text-main: #f1f5f9;
+  --text-muted: #94a3b8;
+  --text-dark: #0b1026;
+
+  /* Tipografía SDD 4.6 (con fallbacks del sistema si no están los woff2 en public/fonts) */
+  --font-display: 'Cinzel', Georgia, serif;
+  --font-ui: 'Rajdhani', system-ui, -apple-system, sans-serif;
+  --font-mono: 'JetBrains Mono', 'CaskaydiaCove Nerd Font', monospace;
+
+  /* Espaciado y bordes */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --border-gold: 1px solid var(--gold-primary);
+  --border-subtle: 1px solid rgba(245, 197, 66, 0.28);
+  --shadow-panel: 0 8px 24px rgba(0, 0, 0, 0.55);
+
+  /* Transiciones */
+  --transition-fast: 150ms ease-out;
+}

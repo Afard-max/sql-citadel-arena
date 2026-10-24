@@ -1,0 +1,269 @@
+{
+  "contentVersion": "1.0.0",
+  "module": "M01",
+  "questions": [
+    {
+      "qid": "M01-tf-001",
+      "module": "M01",
+      "type": "tf",
+      "difficulty": 1,
+      "prompt": "Indica si la afirmación sobre BOOLEAN en MySQL 8.4 es verdadera o falsa:",
+      "statement": "En MySQL, el tipo de dato BOOLEAN es un alias de TINYINT(1).",
+      "timeLimit": 15,
+      "tags": ["tipos", "boolean"],
+      "explanation": "MySQL implementa BOOLEAN y BOOL como sinónimos de TINYINT(1), donde 0 es falso y distinto de 0 es verdadero.",
+      "answer": { "value": true }
+    },
+    {
+      "qid": "M01-tf-002",
+      "module": "M01",
+      "type": "tf",
+      "difficulty": 1,
+      "prompt": "Evalúa si el tipo FLOAT es el más recomendable para importes monetarios exactos:",
+      "statement": "FLOAT es preferible a DECIMAL(10,2) para almacenar saldos bancarios sin errores de redondeo.",
+      "timeLimit": 15,
+      "tags": ["tipos", "decimal", "float"],
+      "explanation": "FLOAT usa coma flotante binaria aproximada; para moneda debe utilizarse DECIMAL.",
+      "answer": { "value": false }
+    },
+    {
+      "qid": "M01-tf-003",
+      "module": "M01",
+      "type": "tf",
+      "difficulty": 2,
+      "prompt": "Analiza el formato estándar del tipo DATE en MySQL:",
+      "statement": "El formato literal estándar para un campo DATE en MySQL es 'AAAA-MM-DD'.",
+      "timeLimit": 15,
+      "tags": ["tipos", "date"],
+      "explanation": "MySQL almacena y muestra valores DATE en el formato 'YYYY-MM-DD' (por ejemplo, '2026-10-24').",
+      "answer": { "value": true }
+    },
+    {
+      "qid": "M01-mc-001",
+      "module": "M01",
+      "type": "mc",
+      "difficulty": 1,
+      "prompt": "¿Cuál es el tipo de dato adecuado en MySQL para almacenar un precio exacto con hasta 8 dígitos enteros y 2 decimales?",
+      "multi": false,
+      "options": [
+        { "id": "a", "text": "DECIMAL(10, 2)" },
+        { "id": "b", "text": "DECIMAL(8, 2)" },
+        { "id": "c", "text": "FLOAT(10, 2)" },
+        { "id": "d", "text": "INT(10)" }
+      ],
+      "timeLimit": 30,
+      "tags": ["decimal"],
+      "explanation": "En DECIMAL(M, D), M es el total de dígitos (precisión) y D los decimales (escala): 8 enteros + 2 decimales = DECIMAL(10, 2).",
+      "answer": { "correct": ["a"] }
+    },
+    {
+      "qid": "M01-mc-002",
+      "module": "M01",
+      "type": "mc",
+      "difficulty": 2,
+      "prompt": "Selecciona TODOS los tipos de datos de MySQL destinados a almacenar texto o cadenas de caracteres:",
+      "multi": true,
+      "options": [
+        { "id": "a", "text": "VARCHAR(120)" },
+        { "id": "b", "text": "CHAR(2)" },
+        { "id": "c", "text": "TEXT" },
+        { "id": "d", "text": "BIGINT" }
+      ],
+      "timeLimit": 30,
+      "tags": ["cadenas"],
+      "explanation": "VARCHAR, CHAR y TEXT almacenan cadenas; BIGINT es un entero de 64 bits.",
+      "answer": { "correct": ["a", "b", "c"] }
+    },
+    {
+      "qid": "M01-mc-003",
+      "module": "M01",
+      "type": "mc",
+      "difficulty": 2,
+      "prompt": "¿Cuál de los siguientes tipos nativos de MySQL almacena únicamente una fecha sin parte horaria?",
+      "multi": false,
+      "options": [
+        { "id": "a", "text": "DATE" },
+        { "id": "b", "text": "DATETIME" },
+        { "id": "c", "text": "TIMESTAMP" },
+        { "id": "d", "text": "TIME" }
+      ],
+      "timeLimit": 30,
+      "tags": ["fechas"],
+      "explanation": "DATE almacena solo año, mes y día ('YYYY-MM-DD'). DATETIME y TIMESTAMP incluyen hora.",
+      "answer": { "correct": ["a"] }
+    },
+    {
+      "qid": "M01-fb-001",
+      "module": "M01",
+      "type": "fb",
+      "difficulty": 1,
+      "prompt": "Completa la definición de columna para una cadena de longitud variable de hasta 100 caracteres:",
+      "template": "nombre {{1}}(100) NOT NULL",
+      "blanks": 1,
+      "timeLimit": 40,
+      "tags": ["varchar"],
+      "explanation": "VARCHAR(n) define una cadena de longitud variable de hasta n caracteres.",
+      "answer": {
+        "accepted": [["VARCHAR"]],
+        "caseSensitive": false
+      }
+    },
+    {
+      "qid": "M01-fb-002",
+      "module": "M01",
+      "type": "fb",
+      "difficulty": 2,
+      "prompt": "Completa el tipo de dato que restringe el valor de una columna a una lista cerrada de cadenas permitidas:",
+      "template": "estado {{1}}('pendiente', 'pagado', 'cancelado')",
+      "blanks": 1,
+      "timeLimit": 40,
+      "tags": ["enum"],
+      "explanation": "ENUM permite elegir un único valor de una lista predefinida en la definición de la columna.",
+      "answer": {
+        "accepted": [["ENUM"]],
+        "caseSensitive": false
+      }
+    },
+    {
+      "qid": "M01-fb-003",
+      "module": "M01",
+      "type": "fb",
+      "difficulty": 2,
+      "prompt": "Completa el tipo entero de 8 bytes (64 bits) usado para identificadores de gran volumen:",
+      "template": "id_evento {{1}} UNSIGNED NOT NULL",
+      "blanks": 1,
+      "timeLimit": 40,
+      "tags": ["bigint"],
+      "explanation": "BIGINT ocupa 8 bytes y admite valores muy superiores a INT (4 bytes).",
+      "answer": {
+        "accepted": [["BIGINT"]],
+        "caseSensitive": false
+      }
+    },
+    {
+      "qid": "M01-mt-001",
+      "module": "M01",
+      "type": "mt",
+      "difficulty": 1,
+      "prompt": "Une cada tipo de dato de MySQL con su uso más apropiado:",
+      "left": [
+        { "id": "l1", "text": "CHAR(2)" },
+        { "id": "l2", "text": "DECIMAL(12,2)" },
+        { "id": "l3", "text": "DATE" }
+      ],
+      "right": [
+        { "id": "r1", "text": "Código ISO de país de longitud fija ('AR', 'ES')" },
+        { "id": "r2", "text": "Importe financiero con precisión exacta" },
+        { "id": "r3", "text": "Fecha de nacimiento sin hora" }
+      ],
+      "timeLimit": 45,
+      "tags": ["tipos"],
+      "explanation": "CHAR es óptimo para longitudes fijas, DECIMAL para importes exactos y DATE para fechas sin hora.",
+      "answer": {
+        "pairs": { "l1": "r1", "l2": "r2", "l3": "r3" }
+      }
+    },
+    {
+      "qid": "M01-mt-002",
+      "module": "M01",
+      "type": "mt",
+      "difficulty": 2,
+      "prompt": "Relaciona cada tipo numérico con su tamaño de almacenamiento en MySQL:",
+      "left": [
+        { "id": "l1", "text": "TINYINT" },
+        { "id": "l2", "text": "INT" },
+        { "id": "l3", "text": "BIGINT" }
+      ],
+      "right": [
+        { "id": "r1", "text": "1 byte" },
+        { "id": "r2", "text": "4 bytes" },
+        { "id": "r3", "text": "8 bytes" }
+      ],
+      "timeLimit": 45,
+      "tags": ["enteros"],
+      "explanation": "TINYINT ocupa 1 byte, INT ocupa 4 bytes y BIGINT ocupa 8 bytes.",
+      "answer": {
+        "pairs": { "l1": "r1", "l2": "r2", "l3": "r3" }
+      }
+    },
+    {
+      "qid": "M01-mt-003",
+      "module": "M01",
+      "type": "mt",
+      "difficulty": 2,
+      "prompt": "Une cada tipo temporal o de texto con su característica:",
+      "left": [
+        { "id": "l1", "text": "VARCHAR(255)" },
+        { "id": "l2", "text": "TEXT" },
+        { "id": "l3", "text": "DATETIME" }
+      ],
+      "right": [
+        { "id": "r1", "text": "Texto corto de longitud variable con límite explícito" },
+        { "id": "r2", "text": "Cuerpo de artículo extenso de hasta 65.535 bytes" },
+        { "id": "r3", "text": "Fecha y hora combinadas ('YYYY-MM-DD HH:MM:SS')" }
+      ],
+      "timeLimit": 45,
+      "tags": ["tipos"],
+      "explanation": "VARCHAR limita los caracteres declarados; TEXT guarda bloques largos; DATETIME combina fecha y hora.",
+      "answer": {
+        "pairs": { "l1": "r1", "l2": "r2", "l3": "r3" }
+      }
+    },
+    {
+      "qid": "M01-or-001",
+      "module": "M01",
+      "type": "or",
+      "difficulty": 1,
+      "prompt": "Ordena los fragmentos para declarar una columna de precio decimal exacto no nula:",
+      "blocks": [
+        { "id": "b2", "text": "DECIMAL(10, 2)" },
+        { "id": "b1", "text": "precio" },
+        { "id": "b3", "text": "NOT NULL" }
+      ],
+      "timeLimit": 60,
+      "tags": ["decimal", "orden"],
+      "explanation": "En una definición de columna primero va el identificador, luego el tipo de dato y finalmente las restricciones.",
+      "answer": {
+        "order": ["b1", "b2", "b3"]
+      }
+    },
+    {
+      "qid": "M01-or-002",
+      "module": "M01",
+      "type": "or",
+      "difficulty": 2,
+      "prompt": "Ordena los bloques para definir una columna ENUM con valor por defecto:",
+      "blocks": [
+        { "id": "b3", "text": "DEFAULT 'escudero'" },
+        { "id": "b1", "text": "rango" },
+        { "id": "b2", "text": "ENUM('escudero', 'paladin')" },
+        { "id": "b4", "text": "NOT NULL" }
+      ],
+      "timeLimit": 60,
+      "tags": ["enum", "orden"],
+      "explanation": "Se declara el nombre de la columna, luego el tipo ENUM(...) y después sus restricciones DEFAULT / NOT NULL.",
+      "answer": {
+        "order": ["b1", "b2", "b4", "b3"]
+      }
+    },
+    {
+      "qid": "M01-or-003",
+      "module": "M01",
+      "type": "or",
+      "difficulty": 2,
+      "prompt": "Ordena los bloques para definir una columna entera sin signo:",
+      "blocks": [
+        { "id": "b2", "text": "INT" },
+        { "id": "b3", "text": "UNSIGNED" },
+        { "id": "b1", "text": "experiencia" },
+        { "id": "b4", "text": "NOT NULL" }
+      ],
+      "timeLimit": 60,
+      "tags": ["int", "unsigned"],
+      "explanation": "El modificador UNSIGNED acompaña inmediatamente al tipo numérico INT antes de NOT NULL.",
+      "answer": {
+        "order": ["b1", "b2", "b3", "b4"]
+      }
+    }
+  ]
+}

@@ -1,0 +1,500 @@
+{
+  "contentVersion": "1.0.0",
+  "module": "M07",
+  "questions": [
+    {
+      "qid": "M07-tf-001",
+      "module": "M07",
+      "type": "tf",
+      "difficulty": 1,
+      "prompt": "Indica si la afirmación sobre UPDATE ... SET ... WHERE es verdadera o falsa:",
+      "statement": "Si se omite la cláusula WHERE en una sentencia UPDATE, se modifican todas las filas de la tabla.",
+      "timeLimit": 15,
+      "tags": [
+        "m07",
+        "tf"
+      ],
+      "explanation": "Si se omite la cláusula WHERE en una sentencia UPDATE, se modifican todas las filas de la tabla.",
+      "answer": {
+        "value": true
+      }
+    },
+    {
+      "qid": "M07-tf-002",
+      "module": "M07",
+      "type": "tf",
+      "difficulty": 1,
+      "prompt": "Evalúa la siguiente afirmación sobre UPDATE ... SET ... WHERE:",
+      "statement": "En MySQL una sentencia UPDATE solo permite modificar una única columna por ejecución.",
+      "timeLimit": 15,
+      "tags": [
+        "m07",
+        "tf"
+      ],
+      "explanation": "Es falso: Si se omite la cláusula WHERE en una sentencia UPDATE, se modifican todas las filas de la tabla.",
+      "answer": {
+        "value": false
+      }
+    },
+    {
+      "qid": "M07-tf-003",
+      "module": "M07",
+      "type": "tf",
+      "difficulty": 2,
+      "prompt": "Verifica el comportamiento en MySQL 8.4 sobre UPDATE ... SET ... WHERE:",
+      "statement": "Cuando sql_safe_updates está activo, MySQL bloquea sentencias UPDATE que no usen una clave en WHERE o LIMIT.",
+      "timeLimit": 15,
+      "tags": [
+        "m07",
+        "tf"
+      ],
+      "explanation": "Cuando sql_safe_updates está activo, MySQL bloquea sentencias UPDATE que no usen una clave en WHERE o LIMIT.",
+      "answer": {
+        "value": true
+      }
+    },
+    {
+      "qid": "M07-mc-001",
+      "module": "M07",
+      "type": "mc",
+      "difficulty": 1,
+      "prompt": "¿Qué sentencia incrementa un 10% el precio del producto con id = 5?",
+      "multi": false,
+      "options": [
+        {
+          "id": "a",
+          "text": "UPDATE productos SET precio = precio * 1.10 WHERE id = 5;"
+        },
+        {
+          "id": "b",
+          "text": "UPDATE productos MODIFY precio = precio * 1.10 WHERE id = 5;"
+        },
+        {
+          "id": "c",
+          "text": "CHANGE productos SET precio * 1.10 WHERE id = 5;"
+        },
+        {
+          "id": "d",
+          "text": "ALTER TABLE productos SET precio = precio * 1.10 WHERE id = 5;"
+        }
+      ],
+      "timeLimit": 30,
+      "tags": [
+        "m07",
+        "mc"
+      ],
+      "explanation": "La sintaxis válida en MySQL 8.4 es: UPDATE productos SET precio = precio * 1.10 WHERE id = 5;",
+      "answer": {
+        "correct": [
+          "a"
+        ]
+      }
+    },
+    {
+      "qid": "M07-mc-002",
+      "module": "M07",
+      "type": "mc",
+      "difficulty": 2,
+      "prompt": "Selecciona las cláusulas que pueden formar parte de una sentencia UPDATE en una sola tabla:",
+      "multi": true,
+      "options": [
+        {
+          "id": "a",
+          "text": "SET"
+        },
+        {
+          "id": "b",
+          "text": "WHERE"
+        },
+        {
+          "id": "c",
+          "text": "ORDER BY ... LIMIT"
+        },
+        {
+          "id": "d",
+          "text": "VALUES"
+        }
+      ],
+      "timeLimit": 30,
+      "tags": [
+        "m07",
+        "mc"
+      ],
+      "explanation": "Las opciones válidas son SET, WHERE y ORDER BY ... LIMIT.",
+      "answer": {
+        "correct": [
+          "a",
+          "b",
+          "c"
+        ]
+      }
+    },
+    {
+      "qid": "M07-mc-003",
+      "module": "M07",
+      "type": "mc",
+      "difficulty": 2,
+      "prompt": "¿Cómo se asigna el valor nulo a la columna clan_id del jugador con id = 9?",
+      "multi": false,
+      "options": [
+        {
+          "id": "a",
+          "text": "UPDATE jugadores SET clan_id = NULL WHERE id = 9;"
+        },
+        {
+          "id": "b",
+          "text": "UPDATE jugadores SET clan_id IS NULL WHERE id = 9;"
+        },
+        {
+          "id": "c",
+          "text": "UPDATE jugadores NULL clan_id WHERE id = 9;"
+        },
+        {
+          "id": "d",
+          "text": "SET jugadores.clan_id = NULL WHERE id = 9;"
+        }
+      ],
+      "timeLimit": 30,
+      "tags": [
+        "m07",
+        "mc"
+      ],
+      "explanation": "La respuesta correcta es: UPDATE jugadores SET clan_id = NULL WHERE id = 9;",
+      "answer": {
+        "correct": [
+          "a"
+        ]
+      }
+    },
+    {
+      "qid": "M07-fb-001",
+      "module": "M07",
+      "type": "fb",
+      "difficulty": 1,
+      "prompt": "Completa la palabra clave de MySQL para UPDATE ... SET ... WHERE:",
+      "template": "UPDATE jugadores {{1}} puntos = 500 WHERE id = 1;",
+      "blanks": 1,
+      "timeLimit": 40,
+      "tags": [
+        "m07",
+        "fb"
+      ],
+      "explanation": "La palabra clave requerida en esta posición es SET.",
+      "answer": {
+        "accepted": [
+          [
+            "SET"
+          ]
+        ],
+        "caseSensitive": false
+      }
+    },
+    {
+      "qid": "M07-fb-002",
+      "module": "M07",
+      "type": "fb",
+      "difficulty": 2,
+      "prompt": "Completa la palabra clave de MySQL para UPDATE ... SET ... WHERE:",
+      "template": "UPDATE jugadores SET puntos = puntos + 50 {{1}} id = 3;",
+      "blanks": 1,
+      "timeLimit": 40,
+      "tags": [
+        "m07",
+        "fb"
+      ],
+      "explanation": "La palabra clave requerida en esta posición es WHERE.",
+      "answer": {
+        "accepted": [
+          [
+            "WHERE"
+          ]
+        ],
+        "caseSensitive": false
+      }
+    },
+    {
+      "qid": "M07-fb-003",
+      "module": "M07",
+      "type": "fb",
+      "difficulty": 2,
+      "prompt": "Completa la palabra clave de MySQL para UPDATE ... SET ... WHERE:",
+      "template": "UPDATE jugadores SET rango = \"Paladin\" ORDER BY puntos DESC {{1}} 5;",
+      "blanks": 1,
+      "timeLimit": 40,
+      "tags": [
+        "m07",
+        "fb"
+      ],
+      "explanation": "La palabra clave requerida en esta posición es LIMIT.",
+      "answer": {
+        "accepted": [
+          [
+            "LIMIT"
+          ]
+        ],
+        "caseSensitive": false
+      }
+    },
+    {
+      "qid": "M07-mt-001",
+      "module": "M07",
+      "type": "mt",
+      "difficulty": 1,
+      "prompt": "Une cada elemento de UPDATE ... SET ... WHERE con su función en MySQL:",
+      "left": [
+        {
+          "id": "l1",
+          "text": "SET col = valor"
+        },
+        {
+          "id": "l2",
+          "text": "WHERE condicion"
+        },
+        {
+          "id": "l3",
+          "text": "sql_safe_updates"
+        }
+      ],
+      "right": [
+        {
+          "id": "r1",
+          "text": "Especifica las columnas y nuevos valores a asignar"
+        },
+        {
+          "id": "r2",
+          "text": "Restringe qué filas serán actualizadas"
+        },
+        {
+          "id": "r3",
+          "text": "Impide actualizaciones accidentales sin filtro de clave"
+        }
+      ],
+      "timeLimit": 45,
+      "tags": [
+        "m07",
+        "mt"
+      ],
+      "explanation": "SET col = valor -> Especifica las columnas y nuevos valores a asignar; WHERE condicion -> Restringe qué filas serán actualizadas.",
+      "answer": {
+        "pairs": {
+          "l1": "r1",
+          "l2": "r2",
+          "l3": "r3"
+        }
+      }
+    },
+    {
+      "qid": "M07-mt-002",
+      "module": "M07",
+      "type": "mt",
+      "difficulty": 2,
+      "prompt": "Une cada elemento de UPDATE ... SET ... WHERE con su función en MySQL:",
+      "left": [
+        {
+          "id": "l1",
+          "text": "SET col = valor"
+        },
+        {
+          "id": "l2",
+          "text": "WHERE condicion"
+        },
+        {
+          "id": "l3",
+          "text": "sql_safe_updates"
+        }
+      ],
+      "right": [
+        {
+          "id": "r1",
+          "text": "Especifica las columnas y nuevos valores a asignar"
+        },
+        {
+          "id": "r2",
+          "text": "Restringe qué filas serán actualizadas"
+        },
+        {
+          "id": "r3",
+          "text": "Impide actualizaciones accidentales sin filtro de clave"
+        }
+      ],
+      "timeLimit": 45,
+      "tags": [
+        "m07",
+        "mt"
+      ],
+      "explanation": "SET col = valor -> Especifica las columnas y nuevos valores a asignar; WHERE condicion -> Restringe qué filas serán actualizadas.",
+      "answer": {
+        "pairs": {
+          "l1": "r1",
+          "l2": "r2",
+          "l3": "r3"
+        }
+      }
+    },
+    {
+      "qid": "M07-mt-003",
+      "module": "M07",
+      "type": "mt",
+      "difficulty": 2,
+      "prompt": "Une cada elemento de UPDATE ... SET ... WHERE con su función en MySQL:",
+      "left": [
+        {
+          "id": "l1",
+          "text": "SET col = valor"
+        },
+        {
+          "id": "l2",
+          "text": "WHERE condicion"
+        },
+        {
+          "id": "l3",
+          "text": "sql_safe_updates"
+        }
+      ],
+      "right": [
+        {
+          "id": "r1",
+          "text": "Especifica las columnas y nuevos valores a asignar"
+        },
+        {
+          "id": "r2",
+          "text": "Restringe qué filas serán actualizadas"
+        },
+        {
+          "id": "r3",
+          "text": "Impide actualizaciones accidentales sin filtro de clave"
+        }
+      ],
+      "timeLimit": 45,
+      "tags": [
+        "m07",
+        "mt"
+      ],
+      "explanation": "SET col = valor -> Especifica las columnas y nuevos valores a asignar; WHERE condicion -> Restringe qué filas serán actualizadas.",
+      "answer": {
+        "pairs": {
+          "l1": "r1",
+          "l2": "r2",
+          "l3": "r3"
+        }
+      }
+    },
+    {
+      "qid": "M07-or-001",
+      "module": "M07",
+      "type": "or",
+      "difficulty": 1,
+      "prompt": "Ordena los bloques para formar una sentencia válida de UPDATE ... SET ... WHERE:",
+      "blocks": [
+        {
+          "id": "b1",
+          "text": "UPDATE"
+        },
+        {
+          "id": "b2",
+          "text": "jugadores"
+        },
+        {
+          "id": "b3",
+          "text": "SET puntos = puntos + 100"
+        },
+        {
+          "id": "b4",
+          "text": "WHERE id = 7;"
+        }
+      ],
+      "timeLimit": 60,
+      "tags": [
+        "m07",
+        "or"
+      ],
+      "explanation": "Orden correcto: UPDATE jugadores SET puntos = puntos + 100 WHERE id = 7;",
+      "answer": {
+        "order": [
+          "b1",
+          "b2",
+          "b3",
+          "b4"
+        ]
+      }
+    },
+    {
+      "qid": "M07-or-002",
+      "module": "M07",
+      "type": "or",
+      "difficulty": 2,
+      "prompt": "Ordena los bloques para formar una sentencia válida de UPDATE ... SET ... WHERE:",
+      "blocks": [
+        {
+          "id": "b1",
+          "text": "UPDATE"
+        },
+        {
+          "id": "b2",
+          "text": "artefactos"
+        },
+        {
+          "id": "b3",
+          "text": "SET activo = 0, stock = 0"
+        },
+        {
+          "id": "b4",
+          "text": "WHERE stock <= 0;"
+        }
+      ],
+      "timeLimit": 60,
+      "tags": [
+        "m07",
+        "or"
+      ],
+      "explanation": "Orden correcto: UPDATE artefactos SET activo = 0, stock = 0 WHERE stock <= 0;",
+      "answer": {
+        "order": [
+          "b1",
+          "b2",
+          "b3",
+          "b4"
+        ]
+      }
+    },
+    {
+      "qid": "M07-or-003",
+      "module": "M07",
+      "type": "or",
+      "difficulty": 2,
+      "prompt": "Ordena los bloques para formar una sentencia válida de UPDATE ... SET ... WHERE:",
+      "blocks": [
+        {
+          "id": "b1",
+          "text": "UPDATE"
+        },
+        {
+          "id": "b2",
+          "text": "jugadores"
+        },
+        {
+          "id": "b3",
+          "text": "SET bonificacion = 1"
+        },
+        {
+          "id": "b4",
+          "text": "ORDER BY puntos DESC LIMIT 3;"
+        }
+      ],
+      "timeLimit": 60,
+      "tags": [
+        "m07",
+        "or"
+      ],
+      "explanation": "Orden correcto: UPDATE jugadores SET bonificacion = 1 ORDER BY puntos DESC LIMIT 3;",
+      "answer": {
+        "order": [
+          "b1",
+          "b2",
+          "b3",
+          "b4"
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,500 @@
+{
+  "contentVersion": "1.0.0",
+  "module": "M10",
+  "questions": [
+    {
+      "qid": "M10-tf-001",
+      "module": "M10",
+      "type": "tf",
+      "difficulty": 1,
+      "prompt": "Indica si la afirmación sobre INNER JOIN y LEFT JOIN es verdadera o falsa:",
+      "statement": "LEFT JOIN conserva todas las filas de la tabla izquierda aunque no tengan coincidencia en la tabla derecha.",
+      "timeLimit": 15,
+      "tags": [
+        "m10",
+        "tf"
+      ],
+      "explanation": "LEFT JOIN conserva todas las filas de la tabla izquierda aunque no tengan coincidencia en la tabla derecha.",
+      "answer": {
+        "value": true
+      }
+    },
+    {
+      "qid": "M10-tf-002",
+      "module": "M10",
+      "type": "tf",
+      "difficulty": 1,
+      "prompt": "Evalúa la siguiente afirmación sobre INNER JOIN y LEFT JOIN:",
+      "statement": "En MySQL la sintaxis correcta para un join izquierdo es JOIN LEFT en lugar de LEFT JOIN.",
+      "timeLimit": 15,
+      "tags": [
+        "m10",
+        "tf"
+      ],
+      "explanation": "Es falso: LEFT JOIN conserva todas las filas de la tabla izquierda aunque no tengan coincidencia en la tabla derecha.",
+      "answer": {
+        "value": false
+      }
+    },
+    {
+      "qid": "M10-tf-003",
+      "module": "M10",
+      "type": "tf",
+      "difficulty": 2,
+      "prompt": "Verifica el comportamiento en MySQL 8.4 sobre INNER JOIN y LEFT JOIN:",
+      "statement": "INNER JOIN devuelve únicamente las filas donde se cumple la condición de unión en ambas tablas.",
+      "timeLimit": 15,
+      "tags": [
+        "m10",
+        "tf"
+      ],
+      "explanation": "INNER JOIN devuelve únicamente las filas donde se cumple la condición de unión en ambas tablas.",
+      "answer": {
+        "value": true
+      }
+    },
+    {
+      "qid": "M10-mc-001",
+      "module": "M10",
+      "type": "mc",
+      "difficulty": 1,
+      "prompt": "¿Cómo se obtienen los jugadores que NO tienen ninguna partida registrada usando LEFT JOIN?",
+      "multi": false,
+      "options": [
+        {
+          "id": "a",
+          "text": "LEFT JOIN partidas p ON j.id = p.jugador_id WHERE p.id IS NULL"
+        },
+        {
+          "id": "b",
+          "text": "INNER JOIN partidas p ON j.id = p.jugador_id WHERE p.id = 0"
+        },
+        {
+          "id": "c",
+          "text": "LEFT JOIN partidas p ON j.id = p.jugador_id HAVING p.id = NULL"
+        },
+        {
+          "id": "d",
+          "text": "JOIN LEFT partidas p WHERE j.id <> p.jugador_id"
+        }
+      ],
+      "timeLimit": 30,
+      "tags": [
+        "m10",
+        "mc"
+      ],
+      "explanation": "La sintaxis válida en MySQL 8.4 es: LEFT JOIN partidas p ON j.id = p.jugador_id WHERE p.id IS NULL",
+      "answer": {
+        "correct": [
+          "a"
+        ]
+      }
+    },
+    {
+      "qid": "M10-mc-002",
+      "module": "M10",
+      "type": "mc",
+      "difficulty": 2,
+      "prompt": "Marca las cláusulas válidas para especificar la condición de unión en un JOIN de MySQL:",
+      "multi": true,
+      "options": [
+        {
+          "id": "a",
+          "text": "ON j.clan_id = c.id"
+        },
+        {
+          "id": "b",
+          "text": "USING (clan_id)"
+        },
+        {
+          "id": "c",
+          "text": "INNER JOIN"
+        },
+        {
+          "id": "d",
+          "text": "JOIN LEFT"
+        }
+      ],
+      "timeLimit": 30,
+      "tags": [
+        "m10",
+        "mc"
+      ],
+      "explanation": "Las opciones válidas son ON j.clan_id = c.id, USING (clan_id) y INNER JOIN.",
+      "answer": {
+        "correct": [
+          "a",
+          "b",
+          "c"
+        ]
+      }
+    },
+    {
+      "qid": "M10-mc-003",
+      "module": "M10",
+      "type": "mc",
+      "difficulty": 2,
+      "prompt": "¿Qué ventaja aporta definir alias de tabla como FROM jugadores AS j?",
+      "multi": false,
+      "options": [
+        {
+          "id": "a",
+          "text": "Abreviar la referencia a columnas (j.id) y desambiguar nombres repetidos"
+        },
+        {
+          "id": "b",
+          "text": "Ejecutar la consulta sin índices"
+        },
+        {
+          "id": "c",
+          "text": "Crear una copia física de la tabla"
+        },
+        {
+          "id": "d",
+          "text": "Evitar escribir la cláusula ON"
+        }
+      ],
+      "timeLimit": 30,
+      "tags": [
+        "m10",
+        "mc"
+      ],
+      "explanation": "La respuesta correcta es: Abreviar la referencia a columnas (j.id) y desambiguar nombres repetidos",
+      "answer": {
+        "correct": [
+          "a"
+        ]
+      }
+    },
+    {
+      "qid": "M10-fb-001",
+      "module": "M10",
+      "type": "fb",
+      "difficulty": 1,
+      "prompt": "Completa la palabra clave de MySQL para INNER JOIN y LEFT JOIN:",
+      "template": "SELECT j.alias, c.nombre FROM jugadores j {{1}} JOIN clanes c ON j.clan_id = c.id;",
+      "blanks": 1,
+      "timeLimit": 40,
+      "tags": [
+        "m10",
+        "fb"
+      ],
+      "explanation": "La palabra clave requerida en esta posición es INNER.",
+      "answer": {
+        "accepted": [
+          [
+            "INNER"
+          ]
+        ],
+        "caseSensitive": false
+      }
+    },
+    {
+      "qid": "M10-fb-002",
+      "module": "M10",
+      "type": "fb",
+      "difficulty": 2,
+      "prompt": "Completa la palabra clave de MySQL para INNER JOIN y LEFT JOIN:",
+      "template": "SELECT j.alias, p.id FROM jugadores j {{1}} JOIN partidas p ON j.id = p.jugador_id;",
+      "blanks": 1,
+      "timeLimit": 40,
+      "tags": [
+        "m10",
+        "fb"
+      ],
+      "explanation": "La palabra clave requerida en esta posición es LEFT.",
+      "answer": {
+        "accepted": [
+          [
+            "LEFT"
+          ]
+        ],
+        "caseSensitive": false
+      }
+    },
+    {
+      "qid": "M10-fb-003",
+      "module": "M10",
+      "type": "fb",
+      "difficulty": 2,
+      "prompt": "Completa la palabra clave de MySQL para INNER JOIN y LEFT JOIN:",
+      "template": "SELECT j.alias, c.nombre FROM jugadores j INNER JOIN clanes c {{1}} j.clan_id = c.id;",
+      "blanks": 1,
+      "timeLimit": 40,
+      "tags": [
+        "m10",
+        "fb"
+      ],
+      "explanation": "La palabra clave requerida en esta posición es ON.",
+      "answer": {
+        "accepted": [
+          [
+            "ON"
+          ]
+        ],
+        "caseSensitive": false
+      }
+    },
+    {
+      "qid": "M10-mt-001",
+      "module": "M10",
+      "type": "mt",
+      "difficulty": 1,
+      "prompt": "Une cada elemento de INNER JOIN y LEFT JOIN con su función en MySQL:",
+      "left": [
+        {
+          "id": "l1",
+          "text": "INNER JOIN"
+        },
+        {
+          "id": "l2",
+          "text": "LEFT JOIN"
+        },
+        {
+          "id": "l3",
+          "text": "ON a.id = b.a_id"
+        }
+      ],
+      "right": [
+        {
+          "id": "r1",
+          "text": "Devuelve solo las filas con coincidencia en ambas tablas"
+        },
+        {
+          "id": "r2",
+          "text": "Devuelve todas las filas de la izquierda y NULL si no hay pareja derecha"
+        },
+        {
+          "id": "r3",
+          "text": "Define la condición explícita de emparejamiento entre tablas"
+        }
+      ],
+      "timeLimit": 45,
+      "tags": [
+        "m10",
+        "mt"
+      ],
+      "explanation": "INNER JOIN -> Devuelve solo las filas con coincidencia en ambas tablas; LEFT JOIN -> Devuelve todas las filas de la izquierda y NULL si no hay pareja derecha.",
+      "answer": {
+        "pairs": {
+          "l1": "r1",
+          "l2": "r2",
+          "l3": "r3"
+        }
+      }
+    },
+    {
+      "qid": "M10-mt-002",
+      "module": "M10",
+      "type": "mt",
+      "difficulty": 2,
+      "prompt": "Une cada elemento de INNER JOIN y LEFT JOIN con su función en MySQL:",
+      "left": [
+        {
+          "id": "l1",
+          "text": "INNER JOIN"
+        },
+        {
+          "id": "l2",
+          "text": "LEFT JOIN"
+        },
+        {
+          "id": "l3",
+          "text": "ON a.id = b.a_id"
+        }
+      ],
+      "right": [
+        {
+          "id": "r1",
+          "text": "Devuelve solo las filas con coincidencia en ambas tablas"
+        },
+        {
+          "id": "r2",
+          "text": "Devuelve todas las filas de la izquierda y NULL si no hay pareja derecha"
+        },
+        {
+          "id": "r3",
+          "text": "Define la condición explícita de emparejamiento entre tablas"
+        }
+      ],
+      "timeLimit": 45,
+      "tags": [
+        "m10",
+        "mt"
+      ],
+      "explanation": "INNER JOIN -> Devuelve solo las filas con coincidencia en ambas tablas; LEFT JOIN -> Devuelve todas las filas de la izquierda y NULL si no hay pareja derecha.",
+      "answer": {
+        "pairs": {
+          "l1": "r1",
+          "l2": "r2",
+          "l3": "r3"
+        }
+      }
+    },
+    {
+      "qid": "M10-mt-003",
+      "module": "M10",
+      "type": "mt",
+      "difficulty": 2,
+      "prompt": "Une cada elemento de INNER JOIN y LEFT JOIN con su función en MySQL:",
+      "left": [
+        {
+          "id": "l1",
+          "text": "INNER JOIN"
+        },
+        {
+          "id": "l2",
+          "text": "LEFT JOIN"
+        },
+        {
+          "id": "l3",
+          "text": "ON a.id = b.a_id"
+        }
+      ],
+      "right": [
+        {
+          "id": "r1",
+          "text": "Devuelve solo las filas con coincidencia en ambas tablas"
+        },
+        {
+          "id": "r2",
+          "text": "Devuelve todas las filas de la izquierda y NULL si no hay pareja derecha"
+        },
+        {
+          "id": "r3",
+          "text": "Define la condición explícita de emparejamiento entre tablas"
+        }
+      ],
+      "timeLimit": 45,
+      "tags": [
+        "m10",
+        "mt"
+      ],
+      "explanation": "INNER JOIN -> Devuelve solo las filas con coincidencia en ambas tablas; LEFT JOIN -> Devuelve todas las filas de la izquierda y NULL si no hay pareja derecha.",
+      "answer": {
+        "pairs": {
+          "l1": "r1",
+          "l2": "r2",
+          "l3": "r3"
+        }
+      }
+    },
+    {
+      "qid": "M10-or-001",
+      "module": "M10",
+      "type": "or",
+      "difficulty": 1,
+      "prompt": "Ordena los bloques para formar una sentencia válida de INNER JOIN y LEFT JOIN:",
+      "blocks": [
+        {
+          "id": "b1",
+          "text": "SELECT j.alias, c.nombre"
+        },
+        {
+          "id": "b2",
+          "text": "FROM jugadores AS j"
+        },
+        {
+          "id": "b3",
+          "text": "INNER JOIN clanes AS c"
+        },
+        {
+          "id": "b4",
+          "text": "ON j.clan_id = c.id;"
+        }
+      ],
+      "timeLimit": 60,
+      "tags": [
+        "m10",
+        "or"
+      ],
+      "explanation": "Orden correcto: SELECT j.alias, c.nombre FROM jugadores AS j INNER JOIN clanes AS c ON j.clan_id = c.id;",
+      "answer": {
+        "order": [
+          "b1",
+          "b2",
+          "b3",
+          "b4"
+        ]
+      }
+    },
+    {
+      "qid": "M10-or-002",
+      "module": "M10",
+      "type": "or",
+      "difficulty": 2,
+      "prompt": "Ordena los bloques para formar una sentencia válida de INNER JOIN y LEFT JOIN:",
+      "blocks": [
+        {
+          "id": "b1",
+          "text": "SELECT j.alias"
+        },
+        {
+          "id": "b2",
+          "text": "FROM jugadores AS j"
+        },
+        {
+          "id": "b3",
+          "text": "LEFT JOIN partidas AS p ON j.id = p.jugador_id"
+        },
+        {
+          "id": "b4",
+          "text": "WHERE p.id IS NULL;"
+        }
+      ],
+      "timeLimit": 60,
+      "tags": [
+        "m10",
+        "or"
+      ],
+      "explanation": "Orden correcto: SELECT j.alias FROM jugadores AS j LEFT JOIN partidas AS p ON j.id = p.jugador_id WHERE p.id IS NULL;",
+      "answer": {
+        "order": [
+          "b1",
+          "b2",
+          "b3",
+          "b4"
+        ]
+      }
+    },
+    {
+      "qid": "M10-or-003",
+      "module": "M10",
+      "type": "or",
+      "difficulty": 2,
+      "prompt": "Ordena los bloques para formar una sentencia válida de INNER JOIN y LEFT JOIN:",
+      "blocks": [
+        {
+          "id": "b1",
+          "text": "SELECT p.id, j.alias, r.nombre"
+        },
+        {
+          "id": "b2",
+          "text": "FROM partidas p"
+        },
+        {
+          "id": "b3",
+          "text": "INNER JOIN jugadores j ON p.jugador_id = j.id"
+        },
+        {
+          "id": "b4",
+          "text": "INNER JOIN reinos r ON p.reino_id = r.id;"
+        }
+      ],
+      "timeLimit": 60,
+      "tags": [
+        "m10",
+        "or"
+      ],
+      "explanation": "Orden correcto: SELECT p.id, j.alias, r.nombre FROM partidas p INNER JOIN jugadores j ON p.jugador_id = j.id INNER JOIN reinos r ON p.reino_id = r.id;",
+      "answer": {
+        "order": [
+          "b1",
+          "b2",
+          "b3",
+          "b4"
+        ]
+      }
+    }
+  ]
+}

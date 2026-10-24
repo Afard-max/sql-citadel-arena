@@ -1,0 +1,500 @@
+{
+  "contentVersion": "1.0.0",
+  "module": "M06",
+  "questions": [
+    {
+      "qid": "M06-tf-001",
+      "module": "M06",
+      "type": "tf",
+      "difficulty": 1,
+      "prompt": "Indica si la afirmación sobre INSERT INTO y manejo de filas nuevas es verdadera o falsa:",
+      "statement": "Una sola sentencia INSERT INTO ... VALUES puede insertar múltiples filas separando las tuplas con comas.",
+      "timeLimit": 15,
+      "tags": [
+        "m06",
+        "tf"
+      ],
+      "explanation": "Una sola sentencia INSERT INTO ... VALUES puede insertar múltiples filas separando las tuplas con comas.",
+      "answer": {
+        "value": true
+      }
+    },
+    {
+      "qid": "M06-tf-002",
+      "module": "M06",
+      "type": "tf",
+      "difficulty": 1,
+      "prompt": "Evalúa la siguiente afirmación sobre INSERT INTO y manejo de filas nuevas:",
+      "statement": "En MySQL es obligatorio incluir siempre un valor explícito para las columnas AUTO_INCREMENT.",
+      "timeLimit": 15,
+      "tags": [
+        "m06",
+        "tf"
+      ],
+      "explanation": "Es falso: Una sola sentencia INSERT INTO ... VALUES puede insertar múltiples filas separando las tuplas con comas.",
+      "answer": {
+        "value": false
+      }
+    },
+    {
+      "qid": "M06-tf-003",
+      "module": "M06",
+      "type": "tf",
+      "difficulty": 2,
+      "prompt": "Verifica el comportamiento en MySQL 8.4 sobre INSERT INTO y manejo de filas nuevas:",
+      "statement": "ON DUPLICATE KEY UPDATE permite actualizar columnas si el INSERT choca con una clave UNIQUE o PRIMARY KEY.",
+      "timeLimit": 15,
+      "tags": [
+        "m06",
+        "tf"
+      ],
+      "explanation": "ON DUPLICATE KEY UPDATE permite actualizar columnas si el INSERT choca con una clave UNIQUE o PRIMARY KEY.",
+      "answer": {
+        "value": true
+      }
+    },
+    {
+      "qid": "M06-mc-001",
+      "module": "M06",
+      "type": "mc",
+      "difficulty": 1,
+      "prompt": "¿Cuál es la sintaxis correcta para insertar dos filas en una sola sentencia?",
+      "multi": false,
+      "options": [
+        {
+          "id": "a",
+          "text": "INSERT INTO clanes (nombre) VALUES (\"Sol\"), (\"Luna\");"
+        },
+        {
+          "id": "b",
+          "text": "INSERT INTO clanes (nombre) VALUES (\"Sol\"; \"Luna\");"
+        },
+        {
+          "id": "c",
+          "text": "INSERT MULTIPLE INTO clanes VALUES (\"Sol\"), (\"Luna\");"
+        },
+        {
+          "id": "d",
+          "text": "INSERT clanes SET (\"Sol\"), (\"Luna\");"
+        }
+      ],
+      "timeLimit": 30,
+      "tags": [
+        "m06",
+        "mc"
+      ],
+      "explanation": "La sintaxis válida en MySQL 8.4 es: INSERT INTO clanes (nombre) VALUES (\"Sol\"), (\"Luna\");",
+      "answer": {
+        "correct": [
+          "a"
+        ]
+      }
+    },
+    {
+      "qid": "M06-mc-002",
+      "module": "M06",
+      "type": "mc",
+      "difficulty": 2,
+      "prompt": "Marca las formas sintácticamente válidas de insertar datos en MySQL 8.4:",
+      "multi": true,
+      "options": [
+        {
+          "id": "a",
+          "text": "INSERT INTO t (col) VALUES (1);"
+        },
+        {
+          "id": "b",
+          "text": "INSERT INTO t SET col = 1;"
+        },
+        {
+          "id": "c",
+          "text": "INSERT INTO t (col) SELECT col FROM otra;"
+        },
+        {
+          "id": "d",
+          "text": "INSERT OVER t WHERE col = 1;"
+        }
+      ],
+      "timeLimit": 30,
+      "tags": [
+        "m06",
+        "mc"
+      ],
+      "explanation": "Las opciones válidas son INSERT INTO t (col) VALUES (1);, INSERT INTO t SET col = 1; y INSERT INTO t (col) SELECT col FROM otra;.",
+      "answer": {
+        "correct": [
+          "a",
+          "b",
+          "c"
+        ]
+      }
+    },
+    {
+      "qid": "M06-mc-003",
+      "module": "M06",
+      "type": "mc",
+      "difficulty": 2,
+      "prompt": "¿Cómo se escribe un literal de fecha válido dentro de VALUES en MySQL?",
+      "multi": false,
+      "options": [
+        {
+          "id": "a",
+          "text": "\"2026-10-24\""
+        },
+        {
+          "id": "b",
+          "text": "2026-10-24 (sin comillas)"
+        },
+        {
+          "id": "c",
+          "text": "#2026/10/24#"
+        },
+        {
+          "id": "d",
+          "text": "DATE(24,10,2026)"
+        }
+      ],
+      "timeLimit": 30,
+      "tags": [
+        "m06",
+        "mc"
+      ],
+      "explanation": "La respuesta correcta es: \"2026-10-24\"",
+      "answer": {
+        "correct": [
+          "a"
+        ]
+      }
+    },
+    {
+      "qid": "M06-fb-001",
+      "module": "M06",
+      "type": "fb",
+      "difficulty": 1,
+      "prompt": "Completa la palabra clave de MySQL para INSERT INTO y manejo de filas nuevas:",
+      "template": "INSERT {{1}} jugadores (alias, puntos) VALUES (\"Arturo\", 100);",
+      "blanks": 1,
+      "timeLimit": 40,
+      "tags": [
+        "m06",
+        "fb"
+      ],
+      "explanation": "La palabra clave requerida en esta posición es INTO.",
+      "answer": {
+        "accepted": [
+          [
+            "INTO"
+          ]
+        ],
+        "caseSensitive": false
+      }
+    },
+    {
+      "qid": "M06-fb-002",
+      "module": "M06",
+      "type": "fb",
+      "difficulty": 2,
+      "prompt": "Completa la palabra clave de MySQL para INSERT INTO y manejo de filas nuevas:",
+      "template": "INSERT INTO jugadores (alias) {{1}} (\"Merlin\");",
+      "blanks": 1,
+      "timeLimit": 40,
+      "tags": [
+        "m06",
+        "fb"
+      ],
+      "explanation": "La palabra clave requerida en esta posición es VALUES.",
+      "answer": {
+        "accepted": [
+          [
+            "VALUES"
+          ]
+        ],
+        "caseSensitive": false
+      }
+    },
+    {
+      "qid": "M06-fb-003",
+      "module": "M06",
+      "type": "fb",
+      "difficulty": 2,
+      "prompt": "Completa la palabra clave de MySQL para INSERT INTO y manejo de filas nuevas:",
+      "template": "INSERT {{1}} INTO jugadores (id, alias) VALUES (1, \"Duplicado\");",
+      "blanks": 1,
+      "timeLimit": 40,
+      "tags": [
+        "m06",
+        "fb"
+      ],
+      "explanation": "La palabra clave requerida en esta posición es IGNORE.",
+      "answer": {
+        "accepted": [
+          [
+            "IGNORE"
+          ]
+        ],
+        "caseSensitive": false
+      }
+    },
+    {
+      "qid": "M06-mt-001",
+      "module": "M06",
+      "type": "mt",
+      "difficulty": 1,
+      "prompt": "Une cada elemento de INSERT INTO y manejo de filas nuevas con su función en MySQL:",
+      "left": [
+        {
+          "id": "l1",
+          "text": "INSERT INTO ... VALUES"
+        },
+        {
+          "id": "l2",
+          "text": "ON DUPLICATE KEY UPDATE"
+        },
+        {
+          "id": "l3",
+          "text": "INSERT INTO ... SELECT"
+        }
+      ],
+      "right": [
+        {
+          "id": "r1",
+          "text": "Inserta una o más filas indicando tuplas de valores"
+        },
+        {
+          "id": "r2",
+          "text": "Actualiza la fila existente si hay colisión de clave única"
+        },
+        {
+          "id": "r3",
+          "text": "Inserta filas a partir del resultado de una consulta"
+        }
+      ],
+      "timeLimit": 45,
+      "tags": [
+        "m06",
+        "mt"
+      ],
+      "explanation": "INSERT INTO ... VALUES -> Inserta una o más filas indicando tuplas de valores; ON DUPLICATE KEY UPDATE -> Actualiza la fila existente si hay colisión de clave única.",
+      "answer": {
+        "pairs": {
+          "l1": "r1",
+          "l2": "r2",
+          "l3": "r3"
+        }
+      }
+    },
+    {
+      "qid": "M06-mt-002",
+      "module": "M06",
+      "type": "mt",
+      "difficulty": 2,
+      "prompt": "Une cada elemento de INSERT INTO y manejo de filas nuevas con su función en MySQL:",
+      "left": [
+        {
+          "id": "l1",
+          "text": "INSERT INTO ... VALUES"
+        },
+        {
+          "id": "l2",
+          "text": "ON DUPLICATE KEY UPDATE"
+        },
+        {
+          "id": "l3",
+          "text": "INSERT INTO ... SELECT"
+        }
+      ],
+      "right": [
+        {
+          "id": "r1",
+          "text": "Inserta una o más filas indicando tuplas de valores"
+        },
+        {
+          "id": "r2",
+          "text": "Actualiza la fila existente si hay colisión de clave única"
+        },
+        {
+          "id": "r3",
+          "text": "Inserta filas a partir del resultado de una consulta"
+        }
+      ],
+      "timeLimit": 45,
+      "tags": [
+        "m06",
+        "mt"
+      ],
+      "explanation": "INSERT INTO ... VALUES -> Inserta una o más filas indicando tuplas de valores; ON DUPLICATE KEY UPDATE -> Actualiza la fila existente si hay colisión de clave única.",
+      "answer": {
+        "pairs": {
+          "l1": "r1",
+          "l2": "r2",
+          "l3": "r3"
+        }
+      }
+    },
+    {
+      "qid": "M06-mt-003",
+      "module": "M06",
+      "type": "mt",
+      "difficulty": 2,
+      "prompt": "Une cada elemento de INSERT INTO y manejo de filas nuevas con su función en MySQL:",
+      "left": [
+        {
+          "id": "l1",
+          "text": "INSERT INTO ... VALUES"
+        },
+        {
+          "id": "l2",
+          "text": "ON DUPLICATE KEY UPDATE"
+        },
+        {
+          "id": "l3",
+          "text": "INSERT INTO ... SELECT"
+        }
+      ],
+      "right": [
+        {
+          "id": "r1",
+          "text": "Inserta una o más filas indicando tuplas de valores"
+        },
+        {
+          "id": "r2",
+          "text": "Actualiza la fila existente si hay colisión de clave única"
+        },
+        {
+          "id": "r3",
+          "text": "Inserta filas a partir del resultado de una consulta"
+        }
+      ],
+      "timeLimit": 45,
+      "tags": [
+        "m06",
+        "mt"
+      ],
+      "explanation": "INSERT INTO ... VALUES -> Inserta una o más filas indicando tuplas de valores; ON DUPLICATE KEY UPDATE -> Actualiza la fila existente si hay colisión de clave única.",
+      "answer": {
+        "pairs": {
+          "l1": "r1",
+          "l2": "r2",
+          "l3": "r3"
+        }
+      }
+    },
+    {
+      "qid": "M06-or-001",
+      "module": "M06",
+      "type": "or",
+      "difficulty": 1,
+      "prompt": "Ordena los bloques para formar una sentencia válida de INSERT INTO y manejo de filas nuevas:",
+      "blocks": [
+        {
+          "id": "b1",
+          "text": "INSERT INTO"
+        },
+        {
+          "id": "b2",
+          "text": "jugadores (alias, puntos)"
+        },
+        {
+          "id": "b3",
+          "text": "VALUES"
+        },
+        {
+          "id": "b4",
+          "text": "(\"Gawain\", 250);"
+        }
+      ],
+      "timeLimit": 60,
+      "tags": [
+        "m06",
+        "or"
+      ],
+      "explanation": "Orden correcto: INSERT INTO jugadores (alias, puntos) VALUES (\"Gawain\", 250);",
+      "answer": {
+        "order": [
+          "b1",
+          "b2",
+          "b3",
+          "b4"
+        ]
+      }
+    },
+    {
+      "qid": "M06-or-002",
+      "module": "M06",
+      "type": "or",
+      "difficulty": 2,
+      "prompt": "Ordena los bloques para formar una sentencia válida de INSERT INTO y manejo de filas nuevas:",
+      "blocks": [
+        {
+          "id": "b1",
+          "text": "INSERT INTO"
+        },
+        {
+          "id": "b2",
+          "text": "archivo_clanes (id, nombre)"
+        },
+        {
+          "id": "b3",
+          "text": "SELECT id, nombre"
+        },
+        {
+          "id": "b4",
+          "text": "FROM clanes;"
+        }
+      ],
+      "timeLimit": 60,
+      "tags": [
+        "m06",
+        "or"
+      ],
+      "explanation": "Orden correcto: INSERT INTO archivo_clanes (id, nombre) SELECT id, nombre FROM clanes;",
+      "answer": {
+        "order": [
+          "b1",
+          "b2",
+          "b3",
+          "b4"
+        ]
+      }
+    },
+    {
+      "qid": "M06-or-003",
+      "module": "M06",
+      "type": "or",
+      "difficulty": 2,
+      "prompt": "Ordena los bloques para formar una sentencia válida de INSERT INTO y manejo de filas nuevas:",
+      "blocks": [
+        {
+          "id": "b1",
+          "text": "INSERT INTO"
+        },
+        {
+          "id": "b2",
+          "text": "jugadores (id, alias)"
+        },
+        {
+          "id": "b3",
+          "text": "VALUES (1, \"Rey\")"
+        },
+        {
+          "id": "b4",
+          "text": "ON DUPLICATE KEY UPDATE alias = \"Rey\";"
+        }
+      ],
+      "timeLimit": 60,
+      "tags": [
+        "m06",
+        "or"
+      ],
+      "explanation": "Orden correcto: INSERT INTO jugadores (id, alias) VALUES (1, \"Rey\") ON DUPLICATE KEY UPDATE alias = \"Rey\";",
+      "answer": {
+        "order": [
+          "b1",
+          "b2",
+          "b3",
+          "b4"
+        ]
+      }
+    }
+  ]
+}

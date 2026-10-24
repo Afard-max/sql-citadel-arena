@@ -1,0 +1,38 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  quality:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js LTS
+        uses: actions/setup-node@v4
+        with:
+          node-version-file: '.nvmrc'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Lint content bank (Ajv)
+        run: npm run lint:content
+
+      - name: Lint code (ESLint)
+        run: npm run lint:code
+
+      - name: Run unit tests (Vitest)
+        run: npm test
+
+      - name: Build static bundle (Vite)
+        run: npm run build

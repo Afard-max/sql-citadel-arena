@@ -1,0 +1,179 @@
+{
+  "contentVersion": "1.0.0",
+  "modules": [
+    {
+      "id": "M01",
+      "title": "Tipos de datos",
+      "realm": "Bastión de los Tipos",
+      "lore": "Domina las piedras angulares de MySQL 8.4: enteros, decimales exactos, cadenas y marcas de tiempo.",
+      "requires": null,
+      "grimoire": [
+        {
+          "topic": "Numéricos enteros y decimales exactos",
+          "syntax": "INT | BIGINT | DECIMAL(10, 2) | FLOAT | DOUBLE | BOOLEAN",
+          "notes": "DECIMAL(p, s) almacena valores exactos (ideal para moneda). BOOLEAN en MySQL es un alias de TINYINT(1)."
+        },
+        {
+          "topic": "Cadenas de caracteres y enumeraciones",
+          "syntax": "CHAR(3) | VARCHAR(255) | TEXT | ENUM('activo', 'inactivo')",
+          "notes": "CHAR tiene longitud fija; VARCHAR tiene longitud variable. ENUM restringe el valor a una lista predefinida."
+        },
+        {
+          "topic": "Fechas y tiempo",
+          "syntax": "DATE | DATETIME | TIMESTAMP",
+          "notes": "DATE usa formato 'AAAA-MM-DD'. DATETIME y TIMESTAMP usan 'AAAA-MM-DD HH:MM:SS' (TIMESTAMP convierte según zona horaria)."
+        }
+      ]
+    },
+    {
+      "id": "M02",
+      "title": "Crear bases de datos",
+      "realm": "Forja de Esquemas",
+      "lore": "Levanta nuevos esquemas con juegos de caracteres Unicode y colaciones modernas.",
+      "requires": "M01",
+      "grimoire": [
+        {
+          "topic": "Creación segura con juego de caracteres",
+          "syntax": "CREATE DATABASE IF NOT EXISTS ciudadela\n  CHARACTER SET utf8mb4\n  COLLATE utf8mb4_unicode_ci;",
+          "notes": "IF NOT EXISTS evita un error si el esquema ya existe. utf8mb4 soporta todos los caracteres Unicode de 4 bytes."
+        },
+        {
+          "topic": "Inspección y selección de esquema",
+          "syntax": "SHOW DATABASES;\nUSE ciudadela;",
+          "notes": "SHOW DATABASES lista los esquemas visibles; USE activa la base de datos por defecto para la sesión."
+        }
+      ]
+    },
+    {
+      "id": "M03",
+      "title": "Crear tablas",
+      "realm": "Muralla de Entidades",
+      "lore": "Define tablas con claves primarias, columnas autoincrementales y restricciones de nulidad y unicidad.",
+      "requires": "M02",
+      "grimoire": [
+        {
+          "topic": "Definición de tabla y restricciones de columna",
+          "syntax": "CREATE TABLE jugadores (\n  id INT AUTO_INCREMENT PRIMARY KEY,\n  alias VARCHAR(50) NOT NULL UNIQUE,\n  puntos INT NOT NULL DEFAULT 0\n);",
+          "notes": "PRIMARY KEY identifica de forma única cada fila e implica NOT NULL. UNIQUE impide duplicados."
+        }
+      ]
+    },
+    {
+      "id": "M04",
+      "title": "Claves foráneas",
+      "realm": "Puente de Vínculos",
+      "lore": "Garantiza la integridad referencial entre tablas mediante el motor InnoDB y reglas ON DELETE / ON UPDATE.",
+      "requires": "M03",
+      "grimoire": [
+        {
+          "topic": "Clave foránea en CREATE TABLE y ALTER TABLE",
+          "syntax": "CONSTRAINT fk_jugador\n  FOREIGN KEY (jugador_id) REFERENCES jugadores(id)\n  ON DELETE CASCADE ON UPDATE RESTRICT;",
+          "notes": "Requiere el motor InnoDB. CASCADE propaga el borrado/actualización; SET NULL asigna NULL; RESTRICT impide la acción si hay hijos."
+        }
+      ]
+    },
+    {
+      "id": "M05",
+      "title": "Modificar y eliminar tablas",
+      "realm": "Torre de Transmutación",
+      "lore": "Altera estructuras existentes añadiendo, modificando o eliminando columnas, o vacía y destruye tablas.",
+      "requires": "M04",
+      "grimoire": [
+        {
+          "topic": "Alteración de estructura (ALTER TABLE)",
+          "syntax": "ALTER TABLE jugadores ADD COLUMN nivel INT NOT NULL DEFAULT 1;\nALTER TABLE jugadores MODIFY COLUMN alias VARCHAR(80) NOT NULL;\nALTER TABLE jugadores DROP COLUMN nivel;",
+          "notes": "MODIFY cambia el tipo o restricciones; CHANGE permite además renombrar la columna; RENAME TO cambia el nombre de la tabla."
+        },
+        {
+          "topic": "Vaciar y eliminar tablas",
+          "syntax": "TRUNCATE TABLE historial;\nDROP TABLE IF EXISTS historial;",
+          "notes": "TRUNCATE vacía todas las filas rápidamente y reinicia AUTO_INCREMENT. DROP TABLE elimina datos y estructura."
+        }
+      ]
+    },
+    {
+      "id": "M06",
+      "title": "Insertar datos",
+      "realm": "Cámara de Invocación",
+      "lore": "Puebla las tablas con registros individuales o múltiples, manejando valores por defecto y claves duplicadas.",
+      "requires": "M05",
+      "grimoire": [
+        {
+          "topic": "Inserción simple, múltiple y manejo de duplicados",
+          "syntax": "INSERT INTO jugadores (alias, puntos)\nVALUES ('Arturo', 100), ('Morgana', 150)\nON DUPLICATE KEY UPDATE puntos = VALUES(puntos);",
+          "notes": "Las cadenas y fechas van entre comillas simples ('2026-10-24'). Las columnas AUTO_INCREMENT o con DEFAULT pueden omitirse."
+        }
+      ]
+    },
+    {
+      "id": "M07",
+      "title": "Actualizar datos",
+      "realm": "Altar de Reforma",
+      "lore": "Modifica filas específicas usando filtros WHERE, expresiones aritméticas y actualizaciones seguras.",
+      "requires": "M06",
+      "grimoire": [
+        {
+          "topic": "Actualización con filtro, expresiones y límite",
+          "syntax": "UPDATE productos\nSET precio = precio * 1.10, stock = stock - 1\nWHERE categoria_id = 3\nORDER BY id ASC LIMIT 10;",
+          "notes": "Omitir la cláusula WHERE actualiza TODAS las filas de la tabla. El modo sql_safe_updates bloquea UPDATE sin clave en WHERE."
+        }
+      ]
+    },
+    {
+      "id": "M08",
+      "title": "Eliminar datos",
+      "realm": "Abismo de Purga",
+      "lore": "Elimina filas específicas respetando las restricciones de integridad referencial y comprende su diferencia con TRUNCATE.",
+      "requires": "M07",
+      "grimoire": [
+        {
+          "topic": "Borrado selectivo de filas",
+          "syntax": "DELETE FROM sesiones\nWHERE expirada = 1\nORDER BY id ASC LIMIT 50;",
+          "notes": "Omitir WHERE borra todas las filas pero NO reinicia el contador AUTO_INCREMENT (a diferencia de TRUNCATE)."
+        }
+      ]
+    },
+    {
+      "id": "M09",
+      "title": "Consultas básicas",
+      "realm": "Oráculo de Selección",
+      "lore": "Filtra, ordena, agrupa y resume información de una tabla con SELECT, WHERE, GROUP BY y HAVING.",
+      "requires": "M08",
+      "grimoire": [
+        {
+          "topic": "Estructura y orden de cláusulas SELECT",
+          "syntax": "SELECT categoria, COUNT(*) AS total\nFROM productos\nWHERE activo = 1 AND precio BETWEEN 10 AND 100\nGROUP BY categoria\nHAVING COUNT(*) >= 5\nORDER BY total DESC LIMIT 10;",
+          "notes": "WHERE filtra filas antes de agrupar; HAVING filtra grupos tras aplicar funciones de agregación (COUNT, SUM, AVG, MIN, MAX). Para nulos se usa IS NULL."
+        }
+      ]
+    },
+    {
+      "id": "M10",
+      "title": "Consultas con varias tablas",
+      "realm": "Nexo de Conjunciones",
+      "lore": "Combina registros de múltiples tablas mediante INNER JOIN y LEFT JOIN con condiciones ON y USING.",
+      "requires": "M09",
+      "grimoire": [
+        {
+          "topic": "INNER JOIN y LEFT JOIN",
+          "syntax": "SELECT j.alias, p.puntaje\nFROM jugadores AS j\nLEFT JOIN partidas AS p ON j.id = p.jugador_id\nWHERE p.id IS NULL;",
+          "notes": "INNER JOIN devuelve solo coincidencias. LEFT JOIN conserva todas las filas de la tabla izquierda (útil con WHERE derecha.id IS NULL para hallar huérfanos)."
+        }
+      ]
+    },
+    {
+      "id": "M11",
+      "title": "Eliminar bases de datos",
+      "realm": "Cataclismo Final",
+      "lore": "Ejecuta la destrucción controlada de esquemas completos y distingue su alcance frente a DROP TABLE.",
+      "requires": "M10",
+      "grimoire": [
+        {
+          "topic": "Eliminación irreversible de un esquema",
+          "syntax": "DROP DATABASE IF EXISTS ciudadela_pruebas;",
+          "notes": "Elimina todas las tablas, vistas y datos del esquema de forma permanente. IF EXISTS evita un error si la base de datos no existe."
+        }
+      ]
+    }
+  ]
+}

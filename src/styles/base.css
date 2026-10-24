@@ -1,0 +1,134 @@
+@import './tokens.css';
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  min-height: 100vh;
+  background-color: var(--bg-night);
+  background-image: radial-gradient(circle at 50% 10%, #1a2754 0%, var(--bg-night) 75%);
+  color: var(--text-main);
+  font-family: var(--font-ui);
+  font-size: 16px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+#app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-display);
+  color: var(--gold-primary);
+  letter-spacing: 0.04em;
+}
+
+code,
+pre,
+.sql-code {
+  font-family: var(--font-mono);
+}
+
+button,
+input,
+select {
+  font: inherit;
+  color: inherit;
+}
+
+button {
+  cursor: pointer;
+  min-height: 44px;
+  min-width: 44px;
+  border-radius: var(--radius-sm);
+  border: var(--border-gold);
+  background: var(--bg-panel-elevated);
+  color: var(--text-main);
+  padding: 0.5rem 1rem;
+  font-weight: 600;
+  transition:
+    transform var(--transition-fast),
+    opacity var(--transition-fast);
+}
+
+button:hover:not(:disabled) {
+  transform: translateY(-1px);
+}
+
+button:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+button:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+:focus-visible {
+  outline: 2px solid var(--cyan-magic);
+  outline-offset: 2px;
+}
+
+.moba-panel {
+  background: var(--bg-panel);
+  border: var(--border-gold);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-panel);
+  padding: 1.25rem;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, #f5c542 0%, #d49b16 100%);
+  color: var(--text-dark);
+  font-family: var(--font-display);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.btn-cyan {
+  border-color: var(--cyan-magic);
+  background: rgba(54, 209, 220, 0.14);
+  color: var(--cyan-magic);
+}
+
+.btn-danger {
+  border-color: var(--crimson-dmg);
+  background: rgba(230, 57, 70, 0.15);
+  color: #ff8fa3;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

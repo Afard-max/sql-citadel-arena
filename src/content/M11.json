@@ -1,0 +1,495 @@
+{
+  "contentVersion": "1.0.0",
+  "module": "M11",
+  "questions": [
+    {
+      "qid": "M11-tf-001",
+      "module": "M11",
+      "type": "tf",
+      "difficulty": 1,
+      "prompt": "Indica si la afirmación sobre DROP DATABASE y seguridad de esquemas es verdadera o falsa:",
+      "statement": "DROP DATABASE elimina de forma permanente el esquema y todas las tablas que contiene.",
+      "timeLimit": 15,
+      "tags": [
+        "m11",
+        "tf"
+      ],
+      "explanation": "DROP DATABASE elimina de forma permanente el esquema y todas las tablas que contiene.",
+      "answer": {
+        "value": true
+      }
+    },
+    {
+      "qid": "M11-tf-002",
+      "module": "M11",
+      "type": "tf",
+      "difficulty": 1,
+      "prompt": "Evalúa la siguiente afirmación sobre DROP DATABASE y seguridad de esquemas:",
+      "statement": "DROP DATABASE solo borra las tablas vacías y conserva las que tienen filas.",
+      "timeLimit": 15,
+      "tags": [
+        "m11",
+        "tf"
+      ],
+      "explanation": "Es falso: DROP DATABASE elimina de forma permanente el esquema y todas las tablas que contiene.",
+      "answer": {
+        "value": false
+      }
+    },
+    {
+      "qid": "M11-tf-003",
+      "module": "M11",
+      "type": "tf",
+      "difficulty": 2,
+      "prompt": "Verifica el comportamiento en MySQL 8.4 sobre DROP DATABASE y seguridad de esquemas:",
+      "statement": "DROP DATABASE IF EXISTS evita que MySQL devuelva un error si el esquema indicado no existe.",
+      "timeLimit": 15,
+      "tags": [
+        "m11",
+        "tf"
+      ],
+      "explanation": "DROP DATABASE IF EXISTS evita que MySQL devuelva un error si el esquema indicado no existe.",
+      "answer": {
+        "value": true
+      }
+    },
+    {
+      "qid": "M11-mc-001",
+      "module": "M11",
+      "type": "mc",
+      "difficulty": 1,
+      "prompt": "¿Cuál es la diferencia fundamental entre DROP DATABASE y DROP TABLE?",
+      "multi": false,
+      "options": [
+        {
+          "id": "a",
+          "text": "DROP DATABASE elimina todo el esquema con todas sus tablas; DROP TABLE elimina solo la tabla indicada"
+        },
+        {
+          "id": "b",
+          "text": "DROP TABLE borra el servidor completo y DROP DATABASE solo una fila"
+        },
+        {
+          "id": "c",
+          "text": "Son sinónimos exactos en MySQL 8.4"
+        },
+        {
+          "id": "d",
+          "text": "DROP DATABASE permite cláusula WHERE"
+        }
+      ],
+      "timeLimit": 30,
+      "tags": [
+        "m11",
+        "mc"
+      ],
+      "explanation": "La sintaxis válida en MySQL 8.4 es: DROP DATABASE elimina todo el esquema con todas sus tablas; DROP TABLE elimina solo la tabla indicada",
+      "answer": {
+        "correct": [
+          "a"
+        ]
+      }
+    },
+    {
+      "qid": "M11-mc-002",
+      "module": "M11",
+      "type": "mc",
+      "difficulty": 2,
+      "prompt": "Selecciona las sentencias válidas en MySQL 8.4 para eliminar un esquema completo:",
+      "multi": true,
+      "options": [
+        {
+          "id": "a",
+          "text": "DROP DATABASE ciudadela;"
+        },
+        {
+          "id": "b",
+          "text": "DROP DATABASE IF EXISTS ciudadela;"
+        },
+        {
+          "id": "c",
+          "text": "DROP SCHEMA IF EXISTS ciudadela;"
+        },
+        {
+          "id": "d",
+          "text": "DELETE DATABASE ciudadela;"
+        }
+      ],
+      "timeLimit": 30,
+      "tags": [
+        "m11",
+        "mc"
+      ],
+      "explanation": "Las opciones válidas son DROP DATABASE ciudadela;, DROP DATABASE IF EXISTS ciudadela; y DROP SCHEMA IF EXISTS ciudadela;.",
+      "answer": {
+        "correct": [
+          "a",
+          "b",
+          "c"
+        ]
+      }
+    },
+    {
+      "qid": "M11-mc-003",
+      "module": "M11",
+      "type": "mc",
+      "difficulty": 2,
+      "prompt": "¿Qué cláusula opcional previene la interrupción de un script si la base de datos a eliminar ya no está presente?",
+      "multi": false,
+      "options": [
+        {
+          "id": "a",
+          "text": "IF EXISTS"
+        },
+        {
+          "id": "b",
+          "text": "IF NOT NULL"
+        },
+        {
+          "id": "c",
+          "text": "IGNORE ERROR"
+        },
+        {
+          "id": "d",
+          "text": "SILENT"
+        }
+      ],
+      "timeLimit": 30,
+      "tags": [
+        "m11",
+        "mc"
+      ],
+      "explanation": "La respuesta correcta es: IF EXISTS",
+      "answer": {
+        "correct": [
+          "a"
+        ]
+      }
+    },
+    {
+      "qid": "M11-fb-001",
+      "module": "M11",
+      "type": "fb",
+      "difficulty": 1,
+      "prompt": "Completa la palabra clave de MySQL para DROP DATABASE y seguridad de esquemas:",
+      "template": "{{1}} DATABASE IF EXISTS laboratorio;",
+      "blanks": 1,
+      "timeLimit": 40,
+      "tags": [
+        "m11",
+        "fb"
+      ],
+      "explanation": "La palabra clave requerida en esta posición es DROP.",
+      "answer": {
+        "accepted": [
+          [
+            "DROP"
+          ]
+        ],
+        "caseSensitive": false
+      }
+    },
+    {
+      "qid": "M11-fb-002",
+      "module": "M11",
+      "type": "fb",
+      "difficulty": 2,
+      "prompt": "Completa la palabra clave de MySQL para DROP DATABASE y seguridad de esquemas:",
+      "template": "DROP {{1}} IF EXISTS temporal_db;",
+      "blanks": 1,
+      "timeLimit": 40,
+      "tags": [
+        "m11",
+        "fb"
+      ],
+      "explanation": "La palabra clave requerida en esta posición es DATABASE.",
+      "answer": {
+        "accepted": [
+          [
+            "DATABASE"
+          ]
+        ],
+        "caseSensitive": false
+      }
+    },
+    {
+      "qid": "M11-fb-003",
+      "module": "M11",
+      "type": "fb",
+      "difficulty": 2,
+      "prompt": "Completa la palabra clave de MySQL para DROP DATABASE y seguridad de esquemas:",
+      "template": "DROP DATABASE IF {{1}} pruebas_sql;",
+      "blanks": 1,
+      "timeLimit": 40,
+      "tags": [
+        "m11",
+        "fb"
+      ],
+      "explanation": "La palabra clave requerida en esta posición es EXISTS.",
+      "answer": {
+        "accepted": [
+          [
+            "EXISTS"
+          ]
+        ],
+        "caseSensitive": false
+      }
+    },
+    {
+      "qid": "M11-mt-001",
+      "module": "M11",
+      "type": "mt",
+      "difficulty": 1,
+      "prompt": "Une cada elemento de DROP DATABASE y seguridad de esquemas con su función en MySQL:",
+      "left": [
+        {
+          "id": "l1",
+          "text": "DROP DATABASE db"
+        },
+        {
+          "id": "l2",
+          "text": "DROP TABLE t"
+        },
+        {
+          "id": "l3",
+          "text": "IF EXISTS"
+        }
+      ],
+      "right": [
+        {
+          "id": "r1",
+          "text": "Elimina el esquema completo y todas sus tablas"
+        },
+        {
+          "id": "r2",
+          "text": "Elimina únicamente la tabla especificada dentro del esquema"
+        },
+        {
+          "id": "r3",
+          "text": "Evita error si la base de datos o tabla no existe"
+        }
+      ],
+      "timeLimit": 45,
+      "tags": [
+        "m11",
+        "mt"
+      ],
+      "explanation": "DROP DATABASE db -> Elimina el esquema completo y todas sus tablas; DROP TABLE t -> Elimina únicamente la tabla especificada dentro del esquema.",
+      "answer": {
+        "pairs": {
+          "l1": "r1",
+          "l2": "r2",
+          "l3": "r3"
+        }
+      }
+    },
+    {
+      "qid": "M11-mt-002",
+      "module": "M11",
+      "type": "mt",
+      "difficulty": 2,
+      "prompt": "Une cada elemento de DROP DATABASE y seguridad de esquemas con su función en MySQL:",
+      "left": [
+        {
+          "id": "l1",
+          "text": "DROP DATABASE db"
+        },
+        {
+          "id": "l2",
+          "text": "DROP TABLE t"
+        },
+        {
+          "id": "l3",
+          "text": "IF EXISTS"
+        }
+      ],
+      "right": [
+        {
+          "id": "r1",
+          "text": "Elimina el esquema completo y todas sus tablas"
+        },
+        {
+          "id": "r2",
+          "text": "Elimina únicamente la tabla especificada dentro del esquema"
+        },
+        {
+          "id": "r3",
+          "text": "Evita error si la base de datos o tabla no existe"
+        }
+      ],
+      "timeLimit": 45,
+      "tags": [
+        "m11",
+        "mt"
+      ],
+      "explanation": "DROP DATABASE db -> Elimina el esquema completo y todas sus tablas; DROP TABLE t -> Elimina únicamente la tabla especificada dentro del esquema.",
+      "answer": {
+        "pairs": {
+          "l1": "r1",
+          "l2": "r2",
+          "l3": "r3"
+        }
+      }
+    },
+    {
+      "qid": "M11-mt-003",
+      "module": "M11",
+      "type": "mt",
+      "difficulty": 2,
+      "prompt": "Une cada elemento de DROP DATABASE y seguridad de esquemas con su función en MySQL:",
+      "left": [
+        {
+          "id": "l1",
+          "text": "DROP DATABASE db"
+        },
+        {
+          "id": "l2",
+          "text": "DROP TABLE t"
+        },
+        {
+          "id": "l3",
+          "text": "IF EXISTS"
+        }
+      ],
+      "right": [
+        {
+          "id": "r1",
+          "text": "Elimina el esquema completo y todas sus tablas"
+        },
+        {
+          "id": "r2",
+          "text": "Elimina únicamente la tabla especificada dentro del esquema"
+        },
+        {
+          "id": "r3",
+          "text": "Evita error si la base de datos o tabla no existe"
+        }
+      ],
+      "timeLimit": 45,
+      "tags": [
+        "m11",
+        "mt"
+      ],
+      "explanation": "DROP DATABASE db -> Elimina el esquema completo y todas sus tablas; DROP TABLE t -> Elimina únicamente la tabla especificada dentro del esquema.",
+      "answer": {
+        "pairs": {
+          "l1": "r1",
+          "l2": "r2",
+          "l3": "r3"
+        }
+      }
+    },
+    {
+      "qid": "M11-or-001",
+      "module": "M11",
+      "type": "or",
+      "difficulty": 1,
+      "prompt": "Ordena los bloques para formar una sentencia válida de DROP DATABASE y seguridad de esquemas:",
+      "blocks": [
+        {
+          "id": "b1",
+          "text": "DROP"
+        },
+        {
+          "id": "b2",
+          "text": "DATABASE"
+        },
+        {
+          "id": "b3",
+          "text": "IF EXISTS"
+        },
+        {
+          "id": "b4",
+          "text": "ciudadela_temporal;"
+        }
+      ],
+      "timeLimit": 60,
+      "tags": [
+        "m11",
+        "or"
+      ],
+      "explanation": "Orden correcto: DROP DATABASE IF EXISTS ciudadela_temporal;",
+      "answer": {
+        "order": [
+          "b1",
+          "b2",
+          "b3",
+          "b4"
+        ]
+      }
+    },
+    {
+      "qid": "M11-or-002",
+      "module": "M11",
+      "type": "or",
+      "difficulty": 2,
+      "prompt": "Ordena los bloques para formar una sentencia válida de DROP DATABASE y seguridad de esquemas:",
+      "blocks": [
+        {
+          "id": "b1",
+          "text": "DROP"
+        },
+        {
+          "id": "b2",
+          "text": "SCHEMA"
+        },
+        {
+          "id": "b3",
+          "text": "IF EXISTS"
+        },
+        {
+          "id": "b4",
+          "text": "entorno_pruebas;"
+        }
+      ],
+      "timeLimit": 60,
+      "tags": [
+        "m11",
+        "or"
+      ],
+      "explanation": "Orden correcto: DROP SCHEMA IF EXISTS entorno_pruebas;",
+      "answer": {
+        "order": [
+          "b1",
+          "b2",
+          "b3",
+          "b4"
+        ]
+      }
+    },
+    {
+      "qid": "M11-or-003",
+      "module": "M11",
+      "type": "or",
+      "difficulty": 2,
+      "prompt": "Ordena los bloques para formar una sentencia válida de DROP DATABASE y seguridad de esquemas:",
+      "blocks": [
+        {
+          "id": "b1",
+          "text": "DROP"
+        },
+        {
+          "id": "b2",
+          "text": "DATABASE"
+        },
+        {
+          "id": "b3",
+          "text": "antiguo_reino;"
+        }
+      ],
+      "timeLimit": 60,
+      "tags": [
+        "m11",
+        "or"
+      ],
+      "explanation": "Orden correcto: DROP DATABASE antiguo_reino;",
+      "answer": {
+        "order": [
+          "b1",
+          "b2",
+          "b3"
+        ]
+      }
+    }
+  ]
+}

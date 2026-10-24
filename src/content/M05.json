@@ -1,0 +1,495 @@
+{
+  "contentVersion": "1.0.0",
+  "module": "M05",
+  "questions": [
+    {
+      "qid": "M05-tf-001",
+      "module": "M05",
+      "type": "tf",
+      "difficulty": 1,
+      "prompt": "Indica si la afirmación sobre ALTER TABLE, DROP TABLE y TRUNCATE es verdadera o falsa:",
+      "statement": "TRUNCATE TABLE elimina todas las filas de una tabla y reinicia el contador AUTO_INCREMENT.",
+      "timeLimit": 15,
+      "tags": [
+        "m05",
+        "tf"
+      ],
+      "explanation": "TRUNCATE TABLE elimina todas las filas de una tabla y reinicia el contador AUTO_INCREMENT.",
+      "answer": {
+        "value": true
+      }
+    },
+    {
+      "qid": "M05-tf-002",
+      "module": "M05",
+      "type": "tf",
+      "difficulty": 1,
+      "prompt": "Evalúa la siguiente afirmación sobre ALTER TABLE, DROP TABLE y TRUNCATE:",
+      "statement": "ALTER TABLE permite modificar datos de filas individuales usando una cláusula WHERE.",
+      "timeLimit": 15,
+      "tags": [
+        "m05",
+        "tf"
+      ],
+      "explanation": "Es falso: TRUNCATE TABLE elimina todas las filas de una tabla y reinicia el contador AUTO_INCREMENT.",
+      "answer": {
+        "value": false
+      }
+    },
+    {
+      "qid": "M05-tf-003",
+      "module": "M05",
+      "type": "tf",
+      "difficulty": 2,
+      "prompt": "Verifica el comportamiento en MySQL 8.4 sobre ALTER TABLE, DROP TABLE y TRUNCATE:",
+      "statement": "DROP TABLE IF EXISTS elimina la estructura y los datos de la tabla sin dar error si no existe.",
+      "timeLimit": 15,
+      "tags": [
+        "m05",
+        "tf"
+      ],
+      "explanation": "DROP TABLE IF EXISTS elimina la estructura y los datos de la tabla sin dar error si no existe.",
+      "answer": {
+        "value": true
+      }
+    },
+    {
+      "qid": "M05-mc-001",
+      "module": "M05",
+      "type": "mc",
+      "difficulty": 1,
+      "prompt": "¿Qué sentencia añade una nueva columna llamada nivel a la tabla jugadores?",
+      "multi": false,
+      "options": [
+        {
+          "id": "a",
+          "text": "ALTER TABLE jugadores ADD COLUMN nivel INT;"
+        },
+        {
+          "id": "b",
+          "text": "UPDATE TABLE jugadores ADD nivel INT;"
+        },
+        {
+          "id": "c",
+          "text": "MODIFY TABLE jugadores INSERT nivel INT;"
+        },
+        {
+          "id": "d",
+          "text": "ALTER jugadores NEW COLUMN nivel INT;"
+        }
+      ],
+      "timeLimit": 30,
+      "tags": [
+        "m05",
+        "mc"
+      ],
+      "explanation": "La sintaxis válida en MySQL 8.4 es: ALTER TABLE jugadores ADD COLUMN nivel INT;",
+      "answer": {
+        "correct": [
+          "a"
+        ]
+      }
+    },
+    {
+      "qid": "M05-mc-002",
+      "module": "M05",
+      "type": "mc",
+      "difficulty": 2,
+      "prompt": "Selecciona las operaciones válidas dentro de una sentencia ALTER TABLE en MySQL:",
+      "multi": true,
+      "options": [
+        {
+          "id": "a",
+          "text": "ADD COLUMN"
+        },
+        {
+          "id": "b",
+          "text": "MODIFY COLUMN"
+        },
+        {
+          "id": "c",
+          "text": "DROP COLUMN"
+        },
+        {
+          "id": "d",
+          "text": "WHERE id = 1"
+        }
+      ],
+      "timeLimit": 30,
+      "tags": [
+        "m05",
+        "mc"
+      ],
+      "explanation": "Las opciones válidas son ADD COLUMN, MODIFY COLUMN y DROP COLUMN.",
+      "answer": {
+        "correct": [
+          "a",
+          "b",
+          "c"
+        ]
+      }
+    },
+    {
+      "qid": "M05-mc-003",
+      "module": "M05",
+      "type": "mc",
+      "difficulty": 2,
+      "prompt": "¿Qué sentencia vacía todas las filas de una tabla conservando su estructura?",
+      "multi": false,
+      "options": [
+        {
+          "id": "a",
+          "text": "TRUNCATE TABLE registros;"
+        },
+        {
+          "id": "b",
+          "text": "DROP TABLE registros;"
+        },
+        {
+          "id": "c",
+          "text": "REMOVE TABLE registros;"
+        },
+        {
+          "id": "d",
+          "text": "ALTER TABLE registros EMPTY;"
+        }
+      ],
+      "timeLimit": 30,
+      "tags": [
+        "m05",
+        "mc"
+      ],
+      "explanation": "La respuesta correcta es: TRUNCATE TABLE registros;",
+      "answer": {
+        "correct": [
+          "a"
+        ]
+      }
+    },
+    {
+      "qid": "M05-fb-001",
+      "module": "M05",
+      "type": "fb",
+      "difficulty": 1,
+      "prompt": "Completa la palabra clave de MySQL para ALTER TABLE, DROP TABLE y TRUNCATE:",
+      "template": "{{1}} TABLE jugadores ADD COLUMN oro INT DEFAULT 0;",
+      "blanks": 1,
+      "timeLimit": 40,
+      "tags": [
+        "m05",
+        "fb"
+      ],
+      "explanation": "La palabra clave requerida en esta posición es ALTER.",
+      "answer": {
+        "accepted": [
+          [
+            "ALTER"
+          ]
+        ],
+        "caseSensitive": false
+      }
+    },
+    {
+      "qid": "M05-fb-002",
+      "module": "M05",
+      "type": "fb",
+      "difficulty": 2,
+      "prompt": "Completa la palabra clave de MySQL para ALTER TABLE, DROP TABLE y TRUNCATE:",
+      "template": "DROP TABLE IF {{1}} temporal;",
+      "blanks": 1,
+      "timeLimit": 40,
+      "tags": [
+        "m05",
+        "fb"
+      ],
+      "explanation": "La palabra clave requerida en esta posición es EXISTS.",
+      "answer": {
+        "accepted": [
+          [
+            "EXISTS"
+          ]
+        ],
+        "caseSensitive": false
+      }
+    },
+    {
+      "qid": "M05-fb-003",
+      "module": "M05",
+      "type": "fb",
+      "difficulty": 2,
+      "prompt": "Completa la palabra clave de MySQL para ALTER TABLE, DROP TABLE y TRUNCATE:",
+      "template": "{{1}} TABLE logs_combate;",
+      "blanks": 1,
+      "timeLimit": 40,
+      "tags": [
+        "m05",
+        "fb"
+      ],
+      "explanation": "La palabra clave requerida en esta posición es TRUNCATE.",
+      "answer": {
+        "accepted": [
+          [
+            "TRUNCATE"
+          ]
+        ],
+        "caseSensitive": false
+      }
+    },
+    {
+      "qid": "M05-mt-001",
+      "module": "M05",
+      "type": "mt",
+      "difficulty": 1,
+      "prompt": "Une cada elemento de ALTER TABLE, DROP TABLE y TRUNCATE con su función en MySQL:",
+      "left": [
+        {
+          "id": "l1",
+          "text": "ALTER TABLE ... ADD"
+        },
+        {
+          "id": "l2",
+          "text": "TRUNCATE TABLE"
+        },
+        {
+          "id": "l3",
+          "text": "DROP TABLE"
+        }
+      ],
+      "right": [
+        {
+          "id": "r1",
+          "text": "Añade una nueva columna o restricción a la tabla"
+        },
+        {
+          "id": "r2",
+          "text": "Vacía todas las filas pero mantiene la tabla creada"
+        },
+        {
+          "id": "r3",
+          "text": "Elimina por completo la tabla y su definición"
+        }
+      ],
+      "timeLimit": 45,
+      "tags": [
+        "m05",
+        "mt"
+      ],
+      "explanation": "ALTER TABLE ... ADD -> Añade una nueva columna o restricción a la tabla; TRUNCATE TABLE -> Vacía todas las filas pero mantiene la tabla creada.",
+      "answer": {
+        "pairs": {
+          "l1": "r1",
+          "l2": "r2",
+          "l3": "r3"
+        }
+      }
+    },
+    {
+      "qid": "M05-mt-002",
+      "module": "M05",
+      "type": "mt",
+      "difficulty": 2,
+      "prompt": "Une cada elemento de ALTER TABLE, DROP TABLE y TRUNCATE con su función en MySQL:",
+      "left": [
+        {
+          "id": "l1",
+          "text": "ALTER TABLE ... ADD"
+        },
+        {
+          "id": "l2",
+          "text": "TRUNCATE TABLE"
+        },
+        {
+          "id": "l3",
+          "text": "DROP TABLE"
+        }
+      ],
+      "right": [
+        {
+          "id": "r1",
+          "text": "Añade una nueva columna o restricción a la tabla"
+        },
+        {
+          "id": "r2",
+          "text": "Vacía todas las filas pero mantiene la tabla creada"
+        },
+        {
+          "id": "r3",
+          "text": "Elimina por completo la tabla y su definición"
+        }
+      ],
+      "timeLimit": 45,
+      "tags": [
+        "m05",
+        "mt"
+      ],
+      "explanation": "ALTER TABLE ... ADD -> Añade una nueva columna o restricción a la tabla; TRUNCATE TABLE -> Vacía todas las filas pero mantiene la tabla creada.",
+      "answer": {
+        "pairs": {
+          "l1": "r1",
+          "l2": "r2",
+          "l3": "r3"
+        }
+      }
+    },
+    {
+      "qid": "M05-mt-003",
+      "module": "M05",
+      "type": "mt",
+      "difficulty": 2,
+      "prompt": "Une cada elemento de ALTER TABLE, DROP TABLE y TRUNCATE con su función en MySQL:",
+      "left": [
+        {
+          "id": "l1",
+          "text": "ALTER TABLE ... ADD"
+        },
+        {
+          "id": "l2",
+          "text": "TRUNCATE TABLE"
+        },
+        {
+          "id": "l3",
+          "text": "DROP TABLE"
+        }
+      ],
+      "right": [
+        {
+          "id": "r1",
+          "text": "Añade una nueva columna o restricción a la tabla"
+        },
+        {
+          "id": "r2",
+          "text": "Vacía todas las filas pero mantiene la tabla creada"
+        },
+        {
+          "id": "r3",
+          "text": "Elimina por completo la tabla y su definición"
+        }
+      ],
+      "timeLimit": 45,
+      "tags": [
+        "m05",
+        "mt"
+      ],
+      "explanation": "ALTER TABLE ... ADD -> Añade una nueva columna o restricción a la tabla; TRUNCATE TABLE -> Vacía todas las filas pero mantiene la tabla creada.",
+      "answer": {
+        "pairs": {
+          "l1": "r1",
+          "l2": "r2",
+          "l3": "r3"
+        }
+      }
+    },
+    {
+      "qid": "M05-or-001",
+      "module": "M05",
+      "type": "or",
+      "difficulty": 1,
+      "prompt": "Ordena los bloques para formar una sentencia válida de ALTER TABLE, DROP TABLE y TRUNCATE:",
+      "blocks": [
+        {
+          "id": "b1",
+          "text": "ALTER TABLE"
+        },
+        {
+          "id": "b2",
+          "text": "jugadores"
+        },
+        {
+          "id": "b3",
+          "text": "ADD COLUMN"
+        },
+        {
+          "id": "b4",
+          "text": "rango VARCHAR(30) NOT NULL;"
+        }
+      ],
+      "timeLimit": 60,
+      "tags": [
+        "m05",
+        "or"
+      ],
+      "explanation": "Orden correcto: ALTER TABLE jugadores ADD COLUMN rango VARCHAR(30) NOT NULL;",
+      "answer": {
+        "order": [
+          "b1",
+          "b2",
+          "b3",
+          "b4"
+        ]
+      }
+    },
+    {
+      "qid": "M05-or-002",
+      "module": "M05",
+      "type": "or",
+      "difficulty": 2,
+      "prompt": "Ordena los bloques para formar una sentencia válida de ALTER TABLE, DROP TABLE y TRUNCATE:",
+      "blocks": [
+        {
+          "id": "b1",
+          "text": "ALTER TABLE"
+        },
+        {
+          "id": "b2",
+          "text": "jugadores"
+        },
+        {
+          "id": "b3",
+          "text": "DROP COLUMN"
+        },
+        {
+          "id": "b4",
+          "text": "rango;"
+        }
+      ],
+      "timeLimit": 60,
+      "tags": [
+        "m05",
+        "or"
+      ],
+      "explanation": "Orden correcto: ALTER TABLE jugadores DROP COLUMN rango;",
+      "answer": {
+        "order": [
+          "b1",
+          "b2",
+          "b3",
+          "b4"
+        ]
+      }
+    },
+    {
+      "qid": "M05-or-003",
+      "module": "M05",
+      "type": "or",
+      "difficulty": 2,
+      "prompt": "Ordena los bloques para formar una sentencia válida de ALTER TABLE, DROP TABLE y TRUNCATE:",
+      "blocks": [
+        {
+          "id": "b1",
+          "text": "DROP TABLE"
+        },
+        {
+          "id": "b2",
+          "text": "IF EXISTS"
+        },
+        {
+          "id": "b3",
+          "text": "partidas_antiguas;"
+        }
+      ],
+      "timeLimit": 60,
+      "tags": [
+        "m05",
+        "or"
+      ],
+      "explanation": "Orden correcto: DROP TABLE IF EXISTS partidas_antiguas;",
+      "answer": {
+        "order": [
+          "b1",
+          "b2",
+          "b3"
+        ]
+      }
+    }
+  ]
+}

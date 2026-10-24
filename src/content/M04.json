@@ -1,0 +1,500 @@
+{
+  "contentVersion": "1.0.0",
+  "module": "M04",
+  "questions": [
+    {
+      "qid": "M04-tf-001",
+      "module": "M04",
+      "type": "tf",
+      "difficulty": 1,
+      "prompt": "Indica si la afirmación sobre FOREIGN KEY e integridad referencial es verdadera o falsa:",
+      "statement": "El motor InnoDB es necesario en MySQL para aplicar restricciones FOREIGN KEY.",
+      "timeLimit": 15,
+      "tags": [
+        "m04",
+        "tf"
+      ],
+      "explanation": "El motor InnoDB es necesario en MySQL para aplicar restricciones FOREIGN KEY.",
+      "answer": {
+        "value": true
+      }
+    },
+    {
+      "qid": "M04-tf-002",
+      "module": "M04",
+      "type": "tf",
+      "difficulty": 1,
+      "prompt": "Evalúa la siguiente afirmación sobre FOREIGN KEY e integridad referencial:",
+      "statement": "ON DELETE RESTRICT borra automáticamente todas las filas hijas cuando se elimina la fila padre.",
+      "timeLimit": 15,
+      "tags": [
+        "m04",
+        "tf"
+      ],
+      "explanation": "Es falso: El motor InnoDB es necesario en MySQL para aplicar restricciones FOREIGN KEY.",
+      "answer": {
+        "value": false
+      }
+    },
+    {
+      "qid": "M04-tf-003",
+      "module": "M04",
+      "type": "tf",
+      "difficulty": 2,
+      "prompt": "Verifica el comportamiento en MySQL 8.4 sobre FOREIGN KEY e integridad referencial:",
+      "statement": "Para usar ON DELETE SET NULL, la columna de clave foránea debe permitir valores NULL.",
+      "timeLimit": 15,
+      "tags": [
+        "m04",
+        "tf"
+      ],
+      "explanation": "Para usar ON DELETE SET NULL, la columna de clave foránea debe permitir valores NULL.",
+      "answer": {
+        "value": true
+      }
+    },
+    {
+      "qid": "M04-mc-001",
+      "module": "M04",
+      "type": "mc",
+      "difficulty": 1,
+      "prompt": "¿Qué acción referencial elimina automáticamente las filas hijas al borrar la fila padre?",
+      "multi": false,
+      "options": [
+        {
+          "id": "a",
+          "text": "ON DELETE CASCADE"
+        },
+        {
+          "id": "b",
+          "text": "ON DELETE RESTRICT"
+        },
+        {
+          "id": "c",
+          "text": "ON DELETE SET NULL"
+        },
+        {
+          "id": "d",
+          "text": "ON DELETE NO ACTION"
+        }
+      ],
+      "timeLimit": 30,
+      "tags": [
+        "m04",
+        "mc"
+      ],
+      "explanation": "La sintaxis válida en MySQL 8.4 es: ON DELETE CASCADE",
+      "answer": {
+        "correct": [
+          "a"
+        ]
+      }
+    },
+    {
+      "qid": "M04-mc-002",
+      "module": "M04",
+      "type": "mc",
+      "difficulty": 2,
+      "prompt": "Selecciona las palabras clave que forman parte de la declaración de una clave foránea:",
+      "multi": true,
+      "options": [
+        {
+          "id": "a",
+          "text": "FOREIGN KEY"
+        },
+        {
+          "id": "b",
+          "text": "REFERENCES"
+        },
+        {
+          "id": "c",
+          "text": "ON DELETE CASCADE"
+        },
+        {
+          "id": "d",
+          "text": "AUTO_FOREIGN"
+        }
+      ],
+      "timeLimit": 30,
+      "tags": [
+        "m04",
+        "mc"
+      ],
+      "explanation": "Las opciones válidas son FOREIGN KEY, REFERENCES y ON DELETE CASCADE.",
+      "answer": {
+        "correct": [
+          "a",
+          "b",
+          "c"
+        ]
+      }
+    },
+    {
+      "qid": "M04-mc-003",
+      "module": "M04",
+      "type": "mc",
+      "difficulty": 2,
+      "prompt": "¿En qué orden deben crearse dos tablas relacionadas por una clave foránea?",
+      "multi": false,
+      "options": [
+        {
+          "id": "a",
+          "text": "Primero la tabla padre (referenciada) y luego la tabla hija"
+        },
+        {
+          "id": "b",
+          "text": "Primero la tabla hija y luego la padre"
+        },
+        {
+          "id": "c",
+          "text": "Solo mediante vistas"
+        },
+        {
+          "id": "d",
+          "text": "El orden nunca importa sin desactivar revisiones"
+        }
+      ],
+      "timeLimit": 30,
+      "tags": [
+        "m04",
+        "mc"
+      ],
+      "explanation": "La respuesta correcta es: Primero la tabla padre (referenciada) y luego la tabla hija",
+      "answer": {
+        "correct": [
+          "a"
+        ]
+      }
+    },
+    {
+      "qid": "M04-fb-001",
+      "module": "M04",
+      "type": "fb",
+      "difficulty": 1,
+      "prompt": "Completa la palabra clave de MySQL para FOREIGN KEY e integridad referencial:",
+      "template": "FOREIGN KEY (rol_id) {{1}} roles(id)",
+      "blanks": 1,
+      "timeLimit": 40,
+      "tags": [
+        "m04",
+        "fb"
+      ],
+      "explanation": "La palabra clave requerida en esta posición es REFERENCES.",
+      "answer": {
+        "accepted": [
+          [
+            "REFERENCES"
+          ]
+        ],
+        "caseSensitive": false
+      }
+    },
+    {
+      "qid": "M04-fb-002",
+      "module": "M04",
+      "type": "fb",
+      "difficulty": 2,
+      "prompt": "Completa la palabra clave de MySQL para FOREIGN KEY e integridad referencial:",
+      "template": "ON DELETE {{1}} ON UPDATE CASCADE",
+      "blanks": 1,
+      "timeLimit": 40,
+      "tags": [
+        "m04",
+        "fb"
+      ],
+      "explanation": "La palabra clave requerida en esta posición es CASCADE.",
+      "answer": {
+        "accepted": [
+          [
+            "CASCADE"
+          ]
+        ],
+        "caseSensitive": false
+      }
+    },
+    {
+      "qid": "M04-fb-003",
+      "module": "M04",
+      "type": "fb",
+      "difficulty": 2,
+      "prompt": "Completa la palabra clave de MySQL para FOREIGN KEY e integridad referencial:",
+      "template": "ALTER TABLE hijos ADD {{1}} fk_padre FOREIGN KEY (padre_id) REFERENCES padres(id);",
+      "blanks": 1,
+      "timeLimit": 40,
+      "tags": [
+        "m04",
+        "fb"
+      ],
+      "explanation": "La palabra clave requerida en esta posición es CONSTRAINT.",
+      "answer": {
+        "accepted": [
+          [
+            "CONSTRAINT"
+          ]
+        ],
+        "caseSensitive": false
+      }
+    },
+    {
+      "qid": "M04-mt-001",
+      "module": "M04",
+      "type": "mt",
+      "difficulty": 1,
+      "prompt": "Une cada elemento de FOREIGN KEY e integridad referencial con su función en MySQL:",
+      "left": [
+        {
+          "id": "l1",
+          "text": "ON DELETE CASCADE"
+        },
+        {
+          "id": "l2",
+          "text": "ON DELETE SET NULL"
+        },
+        {
+          "id": "l3",
+          "text": "ON DELETE RESTRICT"
+        }
+      ],
+      "right": [
+        {
+          "id": "r1",
+          "text": "Borra las filas hijas cuando se elimina la fila padre"
+        },
+        {
+          "id": "r2",
+          "text": "Pone a NULL la clave foránea en las filas hijas"
+        },
+        {
+          "id": "r3",
+          "text": "Impide borrar la fila padre si existen filas hijas asociadas"
+        }
+      ],
+      "timeLimit": 45,
+      "tags": [
+        "m04",
+        "mt"
+      ],
+      "explanation": "ON DELETE CASCADE -> Borra las filas hijas cuando se elimina la fila padre; ON DELETE SET NULL -> Pone a NULL la clave foránea en las filas hijas.",
+      "answer": {
+        "pairs": {
+          "l1": "r1",
+          "l2": "r2",
+          "l3": "r3"
+        }
+      }
+    },
+    {
+      "qid": "M04-mt-002",
+      "module": "M04",
+      "type": "mt",
+      "difficulty": 2,
+      "prompt": "Une cada elemento de FOREIGN KEY e integridad referencial con su función en MySQL:",
+      "left": [
+        {
+          "id": "l1",
+          "text": "ON DELETE CASCADE"
+        },
+        {
+          "id": "l2",
+          "text": "ON DELETE SET NULL"
+        },
+        {
+          "id": "l3",
+          "text": "ON DELETE RESTRICT"
+        }
+      ],
+      "right": [
+        {
+          "id": "r1",
+          "text": "Borra las filas hijas cuando se elimina la fila padre"
+        },
+        {
+          "id": "r2",
+          "text": "Pone a NULL la clave foránea en las filas hijas"
+        },
+        {
+          "id": "r3",
+          "text": "Impide borrar la fila padre si existen filas hijas asociadas"
+        }
+      ],
+      "timeLimit": 45,
+      "tags": [
+        "m04",
+        "mt"
+      ],
+      "explanation": "ON DELETE CASCADE -> Borra las filas hijas cuando se elimina la fila padre; ON DELETE SET NULL -> Pone a NULL la clave foránea en las filas hijas.",
+      "answer": {
+        "pairs": {
+          "l1": "r1",
+          "l2": "r2",
+          "l3": "r3"
+        }
+      }
+    },
+    {
+      "qid": "M04-mt-003",
+      "module": "M04",
+      "type": "mt",
+      "difficulty": 2,
+      "prompt": "Une cada elemento de FOREIGN KEY e integridad referencial con su función en MySQL:",
+      "left": [
+        {
+          "id": "l1",
+          "text": "ON DELETE CASCADE"
+        },
+        {
+          "id": "l2",
+          "text": "ON DELETE SET NULL"
+        },
+        {
+          "id": "l3",
+          "text": "ON DELETE RESTRICT"
+        }
+      ],
+      "right": [
+        {
+          "id": "r1",
+          "text": "Borra las filas hijas cuando se elimina la fila padre"
+        },
+        {
+          "id": "r2",
+          "text": "Pone a NULL la clave foránea en las filas hijas"
+        },
+        {
+          "id": "r3",
+          "text": "Impide borrar la fila padre si existen filas hijas asociadas"
+        }
+      ],
+      "timeLimit": 45,
+      "tags": [
+        "m04",
+        "mt"
+      ],
+      "explanation": "ON DELETE CASCADE -> Borra las filas hijas cuando se elimina la fila padre; ON DELETE SET NULL -> Pone a NULL la clave foránea en las filas hijas.",
+      "answer": {
+        "pairs": {
+          "l1": "r1",
+          "l2": "r2",
+          "l3": "r3"
+        }
+      }
+    },
+    {
+      "qid": "M04-or-001",
+      "module": "M04",
+      "type": "or",
+      "difficulty": 1,
+      "prompt": "Ordena los bloques para formar una sentencia válida de FOREIGN KEY e integridad referencial:",
+      "blocks": [
+        {
+          "id": "b1",
+          "text": "CONSTRAINT fk_clan"
+        },
+        {
+          "id": "b2",
+          "text": "FOREIGN KEY (clan_id)"
+        },
+        {
+          "id": "b3",
+          "text": "REFERENCES clanes(id)"
+        },
+        {
+          "id": "b4",
+          "text": "ON DELETE CASCADE"
+        }
+      ],
+      "timeLimit": 60,
+      "tags": [
+        "m04",
+        "or"
+      ],
+      "explanation": "Orden correcto: CONSTRAINT fk_clan FOREIGN KEY (clan_id) REFERENCES clanes(id) ON DELETE CASCADE",
+      "answer": {
+        "order": [
+          "b1",
+          "b2",
+          "b3",
+          "b4"
+        ]
+      }
+    },
+    {
+      "qid": "M04-or-002",
+      "module": "M04",
+      "type": "or",
+      "difficulty": 2,
+      "prompt": "Ordena los bloques para formar una sentencia válida de FOREIGN KEY e integridad referencial:",
+      "blocks": [
+        {
+          "id": "b1",
+          "text": "ALTER TABLE partidas"
+        },
+        {
+          "id": "b2",
+          "text": "ADD CONSTRAINT fk_jugador"
+        },
+        {
+          "id": "b3",
+          "text": "FOREIGN KEY (jugador_id)"
+        },
+        {
+          "id": "b4",
+          "text": "REFERENCES jugadores(id);"
+        }
+      ],
+      "timeLimit": 60,
+      "tags": [
+        "m04",
+        "or"
+      ],
+      "explanation": "Orden correcto: ALTER TABLE partidas ADD CONSTRAINT fk_jugador FOREIGN KEY (jugador_id) REFERENCES jugadores(id);",
+      "answer": {
+        "order": [
+          "b1",
+          "b2",
+          "b3",
+          "b4"
+        ]
+      }
+    },
+    {
+      "qid": "M04-or-003",
+      "module": "M04",
+      "type": "or",
+      "difficulty": 2,
+      "prompt": "Ordena los bloques para formar una sentencia válida de FOREIGN KEY e integridad referencial:",
+      "blocks": [
+        {
+          "id": "b1",
+          "text": "FOREIGN KEY (lider_id)"
+        },
+        {
+          "id": "b2",
+          "text": "REFERENCES heroes(id)"
+        },
+        {
+          "id": "b3",
+          "text": "ON DELETE SET NULL"
+        },
+        {
+          "id": "b4",
+          "text": "ON UPDATE CASCADE"
+        }
+      ],
+      "timeLimit": 60,
+      "tags": [
+        "m04",
+        "or"
+      ],
+      "explanation": "Orden correcto: FOREIGN KEY (lider_id) REFERENCES heroes(id) ON DELETE SET NULL ON UPDATE CASCADE",
+      "answer": {
+        "order": [
+          "b1",
+          "b2",
+          "b3",
+          "b4"
+        ]
+      }
+    }
+  ]
+}

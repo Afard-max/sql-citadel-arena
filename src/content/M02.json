@@ -1,0 +1,500 @@
+{
+  "contentVersion": "1.0.0",
+  "module": "M02",
+  "questions": [
+    {
+      "qid": "M02-tf-001",
+      "module": "M02",
+      "type": "tf",
+      "difficulty": 1,
+      "prompt": "Indica si la afirmación sobre CREATE DATABASE y USE es verdadera o falsa:",
+      "statement": "CREATE DATABASE IF NOT EXISTS evita un error si el esquema ya existe en MySQL.",
+      "timeLimit": 15,
+      "tags": [
+        "m02",
+        "tf"
+      ],
+      "explanation": "CREATE DATABASE IF NOT EXISTS evita un error si el esquema ya existe en MySQL.",
+      "answer": {
+        "value": true
+      }
+    },
+    {
+      "qid": "M02-tf-002",
+      "module": "M02",
+      "type": "tf",
+      "difficulty": 1,
+      "prompt": "Evalúa la siguiente afirmación sobre CREATE DATABASE y USE:",
+      "statement": "La sentencia USE database_name crea automáticamente la base de datos si no existe.",
+      "timeLimit": 15,
+      "tags": [
+        "m02",
+        "tf"
+      ],
+      "explanation": "Es falso: CREATE DATABASE IF NOT EXISTS evita un error si el esquema ya existe en MySQL.",
+      "answer": {
+        "value": false
+      }
+    },
+    {
+      "qid": "M02-tf-003",
+      "module": "M02",
+      "type": "tf",
+      "difficulty": 2,
+      "prompt": "Verifica el comportamiento en MySQL 8.4 sobre CREATE DATABASE y USE:",
+      "statement": "SHOW DATABASES lista los esquemas visibles para el usuario actual.",
+      "timeLimit": 15,
+      "tags": [
+        "m02",
+        "tf"
+      ],
+      "explanation": "SHOW DATABASES lista los esquemas visibles para el usuario actual.",
+      "answer": {
+        "value": true
+      }
+    },
+    {
+      "qid": "M02-mc-001",
+      "module": "M02",
+      "type": "mc",
+      "difficulty": 1,
+      "prompt": "¿Qué sentencia selecciona la base de datos activa para las siguientes consultas?",
+      "multi": false,
+      "options": [
+        {
+          "id": "a",
+          "text": "USE ciudadela;"
+        },
+        {
+          "id": "b",
+          "text": "SELECT DATABASE ciudadela;"
+        },
+        {
+          "id": "c",
+          "text": "OPEN ciudadela;"
+        },
+        {
+          "id": "d",
+          "text": "SET DATABASE = ciudadela;"
+        }
+      ],
+      "timeLimit": 30,
+      "tags": [
+        "m02",
+        "mc"
+      ],
+      "explanation": "La sintaxis válida en MySQL 8.4 es: USE ciudadela;",
+      "answer": {
+        "correct": [
+          "a"
+        ]
+      }
+    },
+    {
+      "qid": "M02-mc-002",
+      "module": "M02",
+      "type": "mc",
+      "difficulty": 2,
+      "prompt": "Selecciona las cláusulas válidas al crear una base de datos con soporte Unicode completo:",
+      "multi": true,
+      "options": [
+        {
+          "id": "a",
+          "text": "CHARACTER SET utf8mb4"
+        },
+        {
+          "id": "b",
+          "text": "COLLATE utf8mb4_unicode_ci"
+        },
+        {
+          "id": "c",
+          "text": "IF NOT EXISTS"
+        },
+        {
+          "id": "d",
+          "text": "AUTO_INCREMENT"
+        }
+      ],
+      "timeLimit": 30,
+      "tags": [
+        "m02",
+        "mc"
+      ],
+      "explanation": "Las opciones válidas son CHARACTER SET utf8mb4, COLLATE utf8mb4_unicode_ci y IF NOT EXISTS.",
+      "answer": {
+        "correct": [
+          "a",
+          "b",
+          "c"
+        ]
+      }
+    },
+    {
+      "qid": "M02-mc-003",
+      "module": "M02",
+      "type": "mc",
+      "difficulty": 2,
+      "prompt": "¿Qué sentencia muestra todas las bases de datos del servidor MySQL?",
+      "multi": false,
+      "options": [
+        {
+          "id": "a",
+          "text": "SHOW DATABASES;"
+        },
+        {
+          "id": "b",
+          "text": "LIST DATABASES;"
+        },
+        {
+          "id": "c",
+          "text": "SELECT * FROM DATABASES;"
+        },
+        {
+          "id": "d",
+          "text": "DISPLAY SCHEMAS;"
+        }
+      ],
+      "timeLimit": 30,
+      "tags": [
+        "m02",
+        "mc"
+      ],
+      "explanation": "La respuesta correcta es: SHOW DATABASES;",
+      "answer": {
+        "correct": [
+          "a"
+        ]
+      }
+    },
+    {
+      "qid": "M02-fb-001",
+      "module": "M02",
+      "type": "fb",
+      "difficulty": 1,
+      "prompt": "Completa la palabra clave de MySQL para CREATE DATABASE y USE:",
+      "template": "CREATE {{1}} IF NOT EXISTS arena;",
+      "blanks": 1,
+      "timeLimit": 40,
+      "tags": [
+        "m02",
+        "fb"
+      ],
+      "explanation": "La palabra clave requerida en esta posición es DATABASE.",
+      "answer": {
+        "accepted": [
+          [
+            "DATABASE"
+          ]
+        ],
+        "caseSensitive": false
+      }
+    },
+    {
+      "qid": "M02-fb-002",
+      "module": "M02",
+      "type": "fb",
+      "difficulty": 2,
+      "prompt": "Completa la palabra clave de MySQL para CREATE DATABASE y USE:",
+      "template": "CREATE DATABASE arena CHARACTER {{1}} utf8mb4;",
+      "blanks": 1,
+      "timeLimit": 40,
+      "tags": [
+        "m02",
+        "fb"
+      ],
+      "explanation": "La palabra clave requerida en esta posición es SET.",
+      "answer": {
+        "accepted": [
+          [
+            "SET"
+          ]
+        ],
+        "caseSensitive": false
+      }
+    },
+    {
+      "qid": "M02-fb-003",
+      "module": "M02",
+      "type": "fb",
+      "difficulty": 2,
+      "prompt": "Completa la palabra clave de MySQL para CREATE DATABASE y USE:",
+      "template": "{{1}} DATABASES;",
+      "blanks": 1,
+      "timeLimit": 40,
+      "tags": [
+        "m02",
+        "fb"
+      ],
+      "explanation": "La palabra clave requerida en esta posición es SHOW.",
+      "answer": {
+        "accepted": [
+          [
+            "SHOW"
+          ]
+        ],
+        "caseSensitive": false
+      }
+    },
+    {
+      "qid": "M02-mt-001",
+      "module": "M02",
+      "type": "mt",
+      "difficulty": 1,
+      "prompt": "Une cada elemento de CREATE DATABASE y USE con su función en MySQL:",
+      "left": [
+        {
+          "id": "l1",
+          "text": "CREATE DATABASE"
+        },
+        {
+          "id": "l2",
+          "text": "IF NOT EXISTS"
+        },
+        {
+          "id": "l3",
+          "text": "USE"
+        }
+      ],
+      "right": [
+        {
+          "id": "r1",
+          "text": "Crea un nuevo esquema en el servidor"
+        },
+        {
+          "id": "r2",
+          "text": "Previene un error si el esquema ya fue creado"
+        },
+        {
+          "id": "r3",
+          "text": "Establece el esquema por defecto en la sesión actual"
+        }
+      ],
+      "timeLimit": 45,
+      "tags": [
+        "m02",
+        "mt"
+      ],
+      "explanation": "CREATE DATABASE -> Crea un nuevo esquema en el servidor; IF NOT EXISTS -> Previene un error si el esquema ya fue creado.",
+      "answer": {
+        "pairs": {
+          "l1": "r1",
+          "l2": "r2",
+          "l3": "r3"
+        }
+      }
+    },
+    {
+      "qid": "M02-mt-002",
+      "module": "M02",
+      "type": "mt",
+      "difficulty": 2,
+      "prompt": "Une cada elemento de CREATE DATABASE y USE con su función en MySQL:",
+      "left": [
+        {
+          "id": "l1",
+          "text": "CREATE DATABASE"
+        },
+        {
+          "id": "l2",
+          "text": "IF NOT EXISTS"
+        },
+        {
+          "id": "l3",
+          "text": "USE"
+        }
+      ],
+      "right": [
+        {
+          "id": "r1",
+          "text": "Crea un nuevo esquema en el servidor"
+        },
+        {
+          "id": "r2",
+          "text": "Previene un error si el esquema ya fue creado"
+        },
+        {
+          "id": "r3",
+          "text": "Establece el esquema por defecto en la sesión actual"
+        }
+      ],
+      "timeLimit": 45,
+      "tags": [
+        "m02",
+        "mt"
+      ],
+      "explanation": "CREATE DATABASE -> Crea un nuevo esquema en el servidor; IF NOT EXISTS -> Previene un error si el esquema ya fue creado.",
+      "answer": {
+        "pairs": {
+          "l1": "r1",
+          "l2": "r2",
+          "l3": "r3"
+        }
+      }
+    },
+    {
+      "qid": "M02-mt-003",
+      "module": "M02",
+      "type": "mt",
+      "difficulty": 2,
+      "prompt": "Une cada elemento de CREATE DATABASE y USE con su función en MySQL:",
+      "left": [
+        {
+          "id": "l1",
+          "text": "CREATE DATABASE"
+        },
+        {
+          "id": "l2",
+          "text": "IF NOT EXISTS"
+        },
+        {
+          "id": "l3",
+          "text": "USE"
+        }
+      ],
+      "right": [
+        {
+          "id": "r1",
+          "text": "Crea un nuevo esquema en el servidor"
+        },
+        {
+          "id": "r2",
+          "text": "Previene un error si el esquema ya fue creado"
+        },
+        {
+          "id": "r3",
+          "text": "Establece el esquema por defecto en la sesión actual"
+        }
+      ],
+      "timeLimit": 45,
+      "tags": [
+        "m02",
+        "mt"
+      ],
+      "explanation": "CREATE DATABASE -> Crea un nuevo esquema en el servidor; IF NOT EXISTS -> Previene un error si el esquema ya fue creado.",
+      "answer": {
+        "pairs": {
+          "l1": "r1",
+          "l2": "r2",
+          "l3": "r3"
+        }
+      }
+    },
+    {
+      "qid": "M02-or-001",
+      "module": "M02",
+      "type": "or",
+      "difficulty": 1,
+      "prompt": "Ordena los bloques para formar una sentencia válida de CREATE DATABASE y USE:",
+      "blocks": [
+        {
+          "id": "b1",
+          "text": "CREATE DATABASE"
+        },
+        {
+          "id": "b2",
+          "text": "IF NOT EXISTS"
+        },
+        {
+          "id": "b3",
+          "text": "ciudadela"
+        },
+        {
+          "id": "b4",
+          "text": "CHARACTER SET utf8mb4;"
+        }
+      ],
+      "timeLimit": 60,
+      "tags": [
+        "m02",
+        "or"
+      ],
+      "explanation": "Orden correcto: CREATE DATABASE IF NOT EXISTS ciudadela CHARACTER SET utf8mb4;",
+      "answer": {
+        "order": [
+          "b1",
+          "b2",
+          "b3",
+          "b4"
+        ]
+      }
+    },
+    {
+      "qid": "M02-or-002",
+      "module": "M02",
+      "type": "or",
+      "difficulty": 2,
+      "prompt": "Ordena los bloques para formar una sentencia válida de CREATE DATABASE y USE:",
+      "blocks": [
+        {
+          "id": "b1",
+          "text": "CREATE SCHEMA"
+        },
+        {
+          "id": "b2",
+          "text": "reino_sql"
+        },
+        {
+          "id": "b3",
+          "text": "DEFAULT COLLATE"
+        },
+        {
+          "id": "b4",
+          "text": "utf8mb4_unicode_ci;"
+        }
+      ],
+      "timeLimit": 60,
+      "tags": [
+        "m02",
+        "or"
+      ],
+      "explanation": "Orden correcto: CREATE SCHEMA reino_sql DEFAULT COLLATE utf8mb4_unicode_ci;",
+      "answer": {
+        "order": [
+          "b1",
+          "b2",
+          "b3",
+          "b4"
+        ]
+      }
+    },
+    {
+      "qid": "M02-or-003",
+      "module": "M02",
+      "type": "or",
+      "difficulty": 2,
+      "prompt": "Ordena los bloques para formar una sentencia válida de CREATE DATABASE y USE:",
+      "blocks": [
+        {
+          "id": "b1",
+          "text": "SHOW"
+        },
+        {
+          "id": "b2",
+          "text": "DATABASES"
+        },
+        {
+          "id": "b3",
+          "text": "LIKE"
+        },
+        {
+          "id": "b4",
+          "text": "\"%arena%\";"
+        }
+      ],
+      "timeLimit": 60,
+      "tags": [
+        "m02",
+        "or"
+      ],
+      "explanation": "Orden correcto: SHOW DATABASES LIKE \"%arena%\";",
+      "answer": {
+        "order": [
+          "b1",
+          "b2",
+          "b3",
+          "b4"
+        ]
+      }
+    }
+  ]
+}
